@@ -1,7 +1,7 @@
 # CTA WAVE Extended Resources
 
 ## Introduction
-This page collects the extended CTA WAVE extended resources. Some of the documents are public, others are only accessible for CTA WAVE members. The page is separated into different task force and activities:
+This page collects the CTA WAVE extended resources. Some of the documents are public, others are only accessible for CTA WAVE members. The page is separated into different task force and activities:
 
 * [Content Specification Task Force](#content-specification-task-force)
 * [Device Playback Task Force](#device-playback-task-force)
