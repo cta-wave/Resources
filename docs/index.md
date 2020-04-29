@@ -9,7 +9,7 @@ This page collects the CTA WAVE extended resources. Some of the documents are pu
 
 * [Content Specification Task Force](#content-specification-task-force)
 * [Device Playback Task Force](#device-playback-task-force)
-* [HTML-5 API Task Force](#html-5-api-task-force)
+* [HTML5 API Task Force](#html5-api-task-force)
 * [HLS-DASH Interop Task Force](#hls-dash-interop-task-force)
 * [Common Media Header Data Activity](#Common-Media-Header-Data-Activity)
 * [CMAF Byte Stream Format Activity](#CMAF-Byte-Stream-Format-Activity) 
@@ -73,14 +73,18 @@ This page collects the CTA WAVE extended resources. Some of the documents are pu
        * [Downloadable content](http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/audio1.zip)
        * [Test vector in Test MPD](http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_HEAACv2_fragmented.mpd)          
         
-## HTML-5 API Task Force
+## HTML5 API Task Force
 
 ### Published Specifications
+* [Web Media API Snapshot 2017 (CTA-5000) December 2017 (pdf, public)](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5000-final-v2_pdf.pdf)
+* [Web Media API Snapshot 2018 (CTA-5000-A) December 2018 (pdf, public)](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5000-a-final.pdf)
 * [Web Media API Snapshot 2019 (CTA-5000-B) December 2019 (pdf, public)](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5000-b-final_v2.pdf)
 * [Web Media Application Developer Guidelines (CTA-5002) Published December 2018 (pdf, public)](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5002-final.pdf)
 
 ### Specification Development
 
+* [Web Media API Snapshot 2020 (Online Draft)](https://w3c.github.io/webmediaapi/)
+* [Github for comments against Web Media API Snapshot 2020](https://github.com/w3c/webmediaapi/issues/)
 
 ### Test Resources
 * Web Media API Snapshot 2018 Test Suite 
