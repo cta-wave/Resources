@@ -1,3 +1,8 @@
+---
+layout: post
+title: CTA WAVE Extended Resources
+---
+
 # CTA WAVE Extended Resources
 
 ## Introduction
