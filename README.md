@@ -27,4 +27,41 @@ This page collects the extended CTA WAVE extended resources. Some of the documen
 * [WAVE Content Specification, CTA-5001-B Content Specification (2019 Edition) – Final Word Version](https://standards.cta.tech/apps/org/workgroup/cstf/download.php/28780/CTA-5001-B%20TxtOnly.docx)
 * [WAVE DASH-HLS Interop Specification – 2020 Edition, Skeleton Draft](https://standards.cta.tech/apps/org/workgroup/cstf/document.php?document_id=28924)
 
+## Device Playback Task Force
 
+### Published Specifications
+* [Device Playback Capabilities Specification (CTA-5003), Published December 2018 (pdf, public)](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5003-final.pdf)
+* [Device Playback Capabilities Specification (CTA-5003), Published December 2018 (Word, internal)](https://standards.cta.tech/apps/org/workgroup/dpctf/download.php/25037/CTA-5003.docx)
+
+### Specification Development
+* [Draft Specification version 2](https://1drv.ms/w/s!AiNJEPgowJnWgf1djEI_m3uly6_1qQ)
+  * includes test content
+* [Draft Update: Content Options and Playback for AVC/AAC](https://1drv.ms/w/s!AiNJEPgowJnWgbpZesbLvglzCXVlSg?e=Rh7bg7)
+* [Draft Update: Media Capabilities](https://1drv.ms/w/s!AiNJEPgowJnWgpI6nhNJVLWvwn3BWA?e=swV7i9)
+* [Github for comments against specification v2](https://github.com/cta-wave/device-playback-task-force)
+
+### Test Resources
+* [Repo for the DPCTF Test Runner](https://github.com/cta-wave/dpctf-test-runner)
+* [Repo for DPCTF Tests. We prefer to keep the Tests separated from Test Runner](https://github.com/cta-wave/dpctf-tests)
+* [Repo for Docker deployment](https://github.com/cta-wave/dpctf-deploy)
+* [Test Content](http://dash.akamaized.net/WAVE/index.html)
+* [Github for Test Content Issues](github https://github.com/cta-wave/Test-Content)
+* Sample Test Content:
+  * [Fragmented](http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented)
+     * Video:  
+       * [Downloadable content](http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/video1.zip)
+       * [Test vector in Test MPD](http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd)
+     * Audio: 
+       * [Downloadable content](http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/audio1.zip)
+       * [Test vector in Test MPD](http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd)    
+  * [Chunked](http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked)
+     * Video:  
+       * [Downloadable content](http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/video1.zip)
+       * [Test vector in Test MPD](http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_fragmented.mpd)
+     * Audio: 
+       * [Downloadable content](http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/audio1.zip)
+       * [Test vector in Test MPD](http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_HEAACv2_fragmented.mpd)          
+        
+## CMAF Byte Stream Format
+
+### Specification Development
