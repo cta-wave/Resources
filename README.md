@@ -62,6 +62,27 @@ This page collects the extended CTA WAVE extended resources. Some of the documen
        * [Downloadable content](http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/audio1.zip)
        * [Test vector in Test MPD](http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_HEAACv2_fragmented.mpd)          
         
-## CMAF Byte Stream Format
+## HTML-5 API Task Force
+
+### Published Specifications
+* [Web Media API Snapshot 2019 (CTA-5000-B) December 2019 (pdf, public)](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5000-b-final_v2.pdf)
+* [Web Media Application Developer Guidelines (CTA-5002) Published December 2018 (pdf, public)](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5002-final.pdf)
 
 ### Specification Development
+
+
+### Test Resources
+* Web Media API Snapshot 2018 Test Suite 
+  * [Online Hosted Version - Free for Public Access (unblock port 8050)](https://webapitests2018.ctawave.org/)
+  * [Open Source version (for porting to e.g., smart TVs)](https://github.com/cta-wave/WMAS)
+
+## CMAF Byte Stream Format
+
+### W3C Specifications
+* [W3C Media Source Extensions](https://www.w3.org/TR/media-source/)
+* [ISO-based Media File Format (ISOBMFF) Byte Stream Format](https://www.w3.org/TR/mse-byte-stream-format-isobmff/)
+
+### Specification Development
+* [Online Draft](https://docs.google.com/document/d/1WNK2JTY6wW1qGqi7pFpsJvF-rowj2ssmI_NxjNQrh7I/edit?usp=sharing)
+* [Issues Tracker] (https://github.com/cta-wave/CMAF-Byte-Stream/issues)
+
