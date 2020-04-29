@@ -4,11 +4,11 @@
 This page collects the extended CTA WAVE extended resources. Some of the documents are public, others are only accessible for CTA WAVE members. The page is separated into different task force and activities:
 
 * [Content Specification Task Force](#content-specification-task-force)
-* Device Playback Task Force
-* HTML-5 API Task Force
-* CMAF Byte Stream Format Activity
-* HLS/DASH Interop TF
-* Common Media Header Data
+* [Device Playback Task Force](#device-playback-task-force)
+* [HTML-5 API Task Force](#html-5-api-task-force)
+* [HLS-DASH Interop Task Force](#hls-dash-interop-task-force)
+* [Common Media Header Data Activity](#Common-Media-Header-Data-Activity)
+* [CMAF Byte Stream Format Activity](#CMAF-Byte-Stream-Format-Activity) 
 
 ## Content Specification Task Force
 
@@ -83,7 +83,24 @@ This page collects the extended CTA WAVE extended resources. Some of the documen
   * [Online Hosted Version - Free for Public Access (unblock port 8050)](https://webapitests2018.ctawave.org/)
   * [Open Source version (for porting to e.g., smart TVs)](https://github.com/cta-wave/WMAS)
 
-## CMAF Byte Stream Format
+## HLS-DASH Interop Task Force
+
+### Published Specifications
+
+### Specification Development
+
+### Test Resources
+
+## Common Media Header Data Activity
+
+### Published Specifications
+
+### Specification Development
+
+### Test Resources
+
+
+## CMAF Byte Stream Format Activity
 
 ### W3C Specifications
 * [W3C Media Source Extensions](https://www.w3.org/TR/media-source/)
