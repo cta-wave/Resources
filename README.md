@@ -3,7 +3,7 @@
 ## Introduction
 This page collects the extended CTA WAVE extended resources. Some of the documents are public, others are only accessible for CTA WAVE members. The page is separated into different task force and activities:
 
-* Content Specification Task Force
+* [Content Specification Task Force](./#content-specification-task-force)
 * Device Playback Task Force
 * HTML-5 API Task Force
 * CMAF Byte Stream Format Activity
