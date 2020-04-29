@@ -1,7 +1,14 @@
 # CTA WAVE Extended Resources
 
 ## Introduction
-This page collects the extended CTA WAVE extended resources. Some of the documents are public, others are only accessible for CTA WAVE members. The page is separated into different task force.
+This page collects the extended CTA WAVE extended resources. Some of the documents are public, others are only accessible for CTA WAVE members. The page is separated into different task force and activities:
+
+* Content Specification Task Force
+* Device Playback Task Force
+* HTML-5 API Task Force
+* CMAF Byte Stream Format Activity
+* HLS/DASH Interop TF
+* Common Media Header Data
 
 ## Content Specification Task Force
 
