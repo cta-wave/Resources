@@ -108,5 +108,5 @@ This page collects the extended CTA WAVE extended resources. Some of the documen
 
 ### Specification Development
 * [Online Draft](https://docs.google.com/document/d/1WNK2JTY6wW1qGqi7pFpsJvF-rowj2ssmI_NxjNQrh7I/edit?usp=sharing)
-* [Issues Tracker] (https://github.com/cta-wave/CMAF-Byte-Stream/issues)
+* [Issues Tracker](https://github.com/cta-wave/CMAF-Byte-Stream/issues)
 
