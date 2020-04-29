@@ -1,8 +1,14 @@
-# CTA WAVE Resources
+# CTA WAVE Extended Resources
 
 ## Introduction
+This page collects the extended CTA WAVE extended resources. Some of the documents are public, others are only accessible for CTA WAVE members. The page is separated into different task force.
 
 ## Content Specification Task Force
+
+### Published Specifications
+* [WAVE Content Specification, 2018 Edition, April 2018](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5001-final_v2_pdf.pdf) 
+* [WAVE Content Specification, 2018 Edition, Amendment 1, December 2018](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5001-a-final.pdf) 
+* [WAVE Content Specification, 2019 Edition, December 2019](https://cdn.cta.tech/cta/media/media/resources/standards/cta-5001-b-final.pdf)
 
 ### Supporting Documents
 * [Content Specification Task Force Media Profile Wiki](https://github.com/cta-wave/content-specification-task-force/wiki) 
@@ -21,7 +27,4 @@
 * [WAVE Content Specification, CTA-5001-B Content Specification (2019 Edition) – Final Word Version](https://standards.cta.tech/apps/org/workgroup/cstf/download.php/28780/CTA-5001-B TxtOnly.docx)
 * [WAVE DASH-HLS Interop Specification – 2020 Edition, Skeleton Draft](https://standards.cta.tech/apps/org/workgroup/cstf/document.php?document_id=28924)
 
-### Published Specifications
-* [WAVE Content Specification, 2018 Edition, April 2018](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5001-final_v2_pdf.pdf) 
-* [WAVE Content Specification, 2018 Edition, Amendment 1, December 2018](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5001-a-final.pdf) 
-* [WAVE Content Specification, 2019 Edition, December 2019](https://cdn.cta.tech/cta/media/media/resources/standards/cta-5001-b-final.pdf)
+
