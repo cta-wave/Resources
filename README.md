@@ -12,7 +12,7 @@ This page collects the extended CTA WAVE extended resources. Some of the documen
 
 ## Content Specification Task Force
 
-### Published Specifications
+### Published Specifications 
 * [WAVE Content Specification, 2018 Edition, April 2018](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5001-final_v2_pdf.pdf) 
 * [WAVE Content Specification, 2018 Edition, Amendment 1, December 2018](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5001-a-final.pdf) 
 * [WAVE Content Specification, 2019 Edition, December 2019](https://cdn.cta.tech/cta/media/media/resources/standards/cta-5001-b-final.pdf)
