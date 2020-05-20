@@ -96,6 +96,9 @@ This page collects the CTA WAVE extended resources. Some of the documents are pu
 ### Published Specifications
 
 ### Specification Development
+* ISO/IEC 23009-1 
+  * [4th Edition (Editor's Versions)](https://1drv.ms/w/s!AiNJEPgowJnWgpVfJR-Vs3NA2z8FnA?e=kaRfd3)
+  * [ISO/IEC 23009-1 4th edition DAM 1 CMAF support, events processing model and other extensions](https://1drv.ms/u/s!AiNJEPgowJnWgpVzHodpnZfE7ZI7fQ?e=9KPwu9)
 
 ### Test Resources
 
