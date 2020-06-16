@@ -98,13 +98,17 @@ This page collects the CTA WAVE extended resources. Some of the documents are pu
 
 ### Test Resources
 
-## Common Media Header Data Activity
+## Common Media Client Data
 
 ### Published Specifications
+Still being developed. Publication expected Q3 - 2020
 
 ### Specification Development
+* [Online Google doc for spec development](https://docs.google.com/document/d/1S_Dj_aHVnbWnjeJYMfLU1D6tZoqYdgHT1stfznBvxig) 
+* [Github issues](https://github.com/cta-wave/common-media-client-data/issues)
 
 ### Test Resources
+None yet available
 
 ## CMAF Byte Stream Format Activity
 
