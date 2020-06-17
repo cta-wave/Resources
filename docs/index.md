@@ -55,8 +55,10 @@ This page collects the CTA WAVE extended resources. Some of the documents are pu
 * [Repo for the DPCTF Test Runner](https://github.com/cta-wave/dpctf-test-runner)
 * [Repo for DPCTF Tests. We prefer to keep the Tests separated from Test Runner](https://github.com/cta-wave/dpctf-tests)
 * [Repo for Docker deployment](https://github.com/cta-wave/dpctf-deploy)
-* [Test Content](http://dash.akamaized.net/WAVE/index.html)
+* [Test Content Public Website](http://dash.akamaized.net/WAVE/index.html)
 * [Github for Test Content Issues](https://github.com/cta-wave/Test-Content)
+* [Github for Mezzanine](https://github.com/cta-wave/Mezzanine)
+* [Github for Test Content Generation](https://github.com/cta-wave/Test-Content-Generation)
 * Sample Test Content:
   * [Fragmented](http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented)
      * Video:  
