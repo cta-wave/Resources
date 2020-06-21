@@ -31,6 +31,7 @@ This page collects the CTA WAVE extended resources. Some of the documents are pu
 * [CMAF 2nd Edition FDIS (w18636)](https://standards.cta.tech/apps/org/workgroup/wtwg/download.php/27773/w18636-v4-w18636.zip)
 * [DASH Profile for CMAF, ISO/IEC 23009-1:2020/Draft DAM1](https://standards.cta.tech/apps/org/workgroup/wtwg/download.php/29429/29n18626_CTA_WAVE.zip) 
 * [DASH-IF “Advanced Ad Insertion in DASH”](https://dashif.org/docs/CR-Ad-Insertion-r5.pdf)
+* [Draft of proposed revision of SCTE 215-1-1](https://standards.cta.tech/apps/org/workgroup/wtwg/document.php?document_id=30154)
 
 ### Internal Drafts
 * [WAVE Content Specification, 2018 Edition, Amendment 1, final Word version](https://standards.cta.tech/apps/org/workgroup/cstf/document.php?document_id=25036)
