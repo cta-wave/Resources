@@ -49,32 +49,21 @@ This page collects the CTA WAVE extended resources. Some of the documents are pu
 * [Draft Specification version 2](https://1drv.ms/w/s!AiNJEPgowJnWgf1djEI_m3uly6_1qQ)
   * includes test content
 * [Draft Update: Content Options and Playback for AVC/AAC](https://1drv.ms/w/s!AiNJEPgowJnWgbpZesbLvglzCXVlSg?e=Rh7bg7)
-* [Draft Update: Media Capabilities](https://1drv.ms/w/s!AiNJEPgowJnWgpI6nhNJVLWvwn3BWA?e=swV7i9)
+* Media Capabilities
+  * [Draft Update: Media Capabilities](https://1drv.ms/w/s!AiNJEPgowJnWgpI6nhNJVLWvwn3BWA?e=swV7i9)
+  * [Media Capabilities Mapping](https://1drv.ms/w/s!AiNJEPgowJnWgpQn_duIoacMuDdrtA?e=Yhy4cU)
 * [Github for comments against specification v2](https://github.com/cta-wave/device-playback-task-force)
 
 ### Test Resources
-* [Repo for the DPCTF Test Runner](https://github.com/cta-wave/dpctf-test-runner)
-* [Repo for DPCTF Tests. We prefer to keep the Tests separated from Test Runner](https://github.com/cta-wave/dpctf-tests)
-* [Repo for Docker deployment](https://github.com/cta-wave/dpctf-deploy)
-* [Test Content Public Website](http://dash.akamaized.net/WAVE/index.html)
-* [Github for Test Content Issues](https://github.com/cta-wave/Test-Content)
-* [Github for Mezzanine](https://github.com/cta-wave/Mezzanine)
-* [Github for Test Content Generation](https://github.com/cta-wave/Test-Content-Generation)
-* Sample Test Content:
-  * [Fragmented](http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented)
-     * Video:  
-       * [Downloadable content](http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/video1.zip)
-       * [Test vector in Test MPD](http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd)
-     * Audio: 
-       * [Downloadable content](http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/audio1.zip)
-       * [Test vector in Test MPD](http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd)    
-  * [Chunked](http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked)
-     * Video:  
-       * [Downloadable content](http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/video1.zip)
-       * [Test vector in Test MPD](http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_fragmented.mpd)
-     * Audio: 
-       * [Downloadable content](http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/audio1.zip)
-       * [Test vector in Test MPD](http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_HEAACv2_fragmented.mpd)          
+* Test Runner
+  * [Repo for the DPCTF Test Runner](https://github.com/cta-wave/dpctf-test-runner)
+  * [Repo for DPCTF Tests. We prefer to keep the Tests separated from Test Runner](https://github.com/cta-wave/dpctf-tests)
+  * [Repo for Docker deployment](https://github.com/cta-wave/dpctf-deploy)
+* Test and Mezzanine Content
+  * [Test Content Public Website](http://dash.akamaized.net/WAVE/index.html)
+  * [Github for Test Content Issues](https://github.com/cta-wave/Test-Content)
+  * [Github for Mezzanine](https://github.com/cta-wave/Mezzanine)
+  * [Github for Test Content Generation](https://github.com/cta-wave/Test-Content-Generation)
         
 ## HTML5 API Task Force
 
@@ -125,6 +114,5 @@ None yet available
 * [ISO-based Media File Format (ISOBMFF) Byte Stream Format](https://www.w3.org/TR/mse-byte-stream-format-isobmff/)
 
 ### Specification Development
-* [Online Draft](https://docs.google.com/document/d/1WNK2JTY6wW1qGqi7pFpsJvF-rowj2ssmI_NxjNQrh7I/edit?usp=sharing)
+* [Draft for Internal Review](https://1drv.ms/w/s!AiNJEPgowJnWgqINU8ZkF1ZVNP6Tag?e=6vVaiS)
 * [Issues Tracker](https://github.com/cta-wave/CMAF-Byte-Stream/issues)
-
