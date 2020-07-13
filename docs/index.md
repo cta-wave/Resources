@@ -47,12 +47,12 @@ This page collects the CTA WAVE extended resources. Some of the documents are pu
 
 ### Specification Development
 * [Draft Specification version 2](https://1drv.ms/w/s!AiNJEPgowJnWgf1djEI_m3uly6_1qQ)
-  * includes test content
+* [Github for comments against specification v2](https://github.com/cta-wave/device-playback-task-force)
 * [Draft Update: Content Options and Playback for AVC/AAC](https://1drv.ms/w/s!AiNJEPgowJnWgbpZesbLvglzCXVlSg?e=Rh7bg7)
 * Media Capabilities
-  * [Draft Update: Media Capabilities](https://1drv.ms/w/s!AiNJEPgowJnWgpI6nhNJVLWvwn3BWA?e=swV7i9)
+  * [Draft Specification Update: Media Capabilities](https://1drv.ms/w/s!AiNJEPgowJnWgqIgG1edtm6I5qQTEQ?e=m2Tz9e)
   * [Media Capabilities Mapping](https://1drv.ms/w/s!AiNJEPgowJnWgpQn_duIoacMuDdrtA?e=Yhy4cU)
-* [Github for comments against specification v2](https://github.com/cta-wave/device-playback-task-force)
+  * [Media Capabilities Issue Tracker](https://github.com/cta-wave/Media-Capability-APIs/issues)
 
 ### Test Resources
 * Test Runner
