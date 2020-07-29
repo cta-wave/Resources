@@ -114,5 +114,6 @@ None yet available
 * [ISO-based Media File Format (ISOBMFF) Byte Stream Format](https://www.w3.org/TR/mse-byte-stream-format-isobmff/)
 
 ### Specification Development
-* [Draft for Internal Review](https://1drv.ms/w/s!AiNJEPgowJnWgqINU8ZkF1ZVNP6Tag?e=6vVaiS)
+* [Public Review (pdf)](https://cta-wave.github.io/Resources/CMAF%20Byte%20Stream%20Format%20-%20PR.pdf)
+* [Draft CR (doc)](https://1drv.ms/w/s!AiNJEPgowJnWgqMwc1tFcNK-DSxwzA)
 * [Issues Tracker](https://github.com/cta-wave/CMAF-Byte-Stream/issues)
