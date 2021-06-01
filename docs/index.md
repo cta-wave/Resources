@@ -59,6 +59,8 @@ This page collects the CTA WAVE extended resources. Some of the documents are pu
   * [Repo for the DPCTF Test Runner](https://github.com/cta-wave/dpctf-test-runner)
   * [Repo for DPCTF Tests. We prefer to keep the Tests separated from Test Runner](https://github.com/cta-wave/dpctf-tests)
   * [Repo for Docker deployment](https://github.com/cta-wave/dpctf-deploy)
+* Device Observation Framework
+  * [Repo for DPCTF Observation Framework](https://github.com/cta-wave/device-observation-framework)
 * Test and Mezzanine Content
   * [Test Content Public Website](http://dash.akamaized.net/WAVE/index.html)
   * [Github for Test Content Issues](https://github.com/cta-wave/Test-Content)
