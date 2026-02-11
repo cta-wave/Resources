@@ -11,7 +11,7 @@ This page collects the CTA WAVE extended resources. Some of the documents are pu
 * [Device Playback Task Force](#device-playback-task-force)
 * [HTML5 API Task Force](#html5-api-task-force)
 * [HLS-DASH Interop Task Force](#hls-dash-interop-task-force)
-* [Common Media Header Data Activity](#Common-Media-Header-Data-Activity)
+* [Common Media Client Data](#common-media-client-data)
 * [CMAF Byte Stream Format Activity](#CMAF-Byte-Stream-Format-Activity) 
 
 ## Content Specification Task Force
@@ -96,13 +96,12 @@ This page collects the CTA WAVE extended resources. Some of the documents are pu
 
 ### Test Resources
 
-## Common Media Header Data Activity
+## Common Media Client Data
 
 ### Published Specifications
-Still being developed. Publication expected Q3 - 2020
+* [Common Media Client Data (CTA-5004-A)](https://cta-wave.github.io/Resources/common-media-client-data--cta-5004-a.html)
 
 ### Specification Development
-* [Online Google doc for spec development](https://docs.google.com/document/d/1S_Dj_aHVnbWnjeJYMfLU1D6tZoqYdgHT1stfznBvxig) 
 * [Github issues](https://github.com/cta-wave/common-media-client-data/issues)
 
 ### Test Resources

@@ -1,0 +1,1107 @@
+<!DOCTYPE html><html lang="en" dir="ltr"><head>
+<meta charset="utf-8">
+<meta name="generator" content="ReSpec 35.6.1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;border-bottom-color:var(--indextable-hover-bg,#fff);top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1;border-bottom-color:var(--indextable-hover-bg,#a2a9b1)}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;color:var(--text,#000);margin-top:.25em}
+.dfn-panel ul a[href]{color:#333;color:var(--text,#333)}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+</style>
+    
+    
+    
+    
+<link rel="icon" type="image/x-icon" href="https://cta.tech/favicon.ico">
+    
+<style>
+
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 5px;
+      text-align: center;
+    }
+    th {
+      text-align: center;
+    }
+    
+</style>
+  
+<style id="respec-mainstyle">
+@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+cite .bibref{font-style:italic}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none;display:inline-block}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+.self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+aside.example .marker>a.self-link{color:inherit}
+.header-wrapper{display:flex;align-items:baseline}
+:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2){position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.5}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+:is(h2,h3)+a.self-link{top:-.2em}
+:is(h4,h5,h6)+a.self-link::before{color:#000}
+@media (max-width:767px){
+dd{margin-left:0}
+}
+@media print{
+.removeOnSave{display:none}
+}
+</style>
+<meta name="color-scheme" content="light">
+<title>Web Application Video Ecosystem - Common Media Client Data (CTA-5004-A)</title>
+<meta name="description" content="This document outlines a simple means by which every media player can communicate data with each media object request and have it received and processed consistently by every CDN.
+        This is an approved and published CTA WAVE standard document. All CTA standards are available at CTA.tech/Standards.">
+<style>
+var:hover{text-decoration:underline;cursor:pointer}
+var.respec-hl{color:var(--color,#000);background-color:var(--bg-color);box-shadow:0 0 0 2px var(--bg-color)}
+@media (prefers-color-scheme:dark){
+var.respec-hl{filter:saturate(.9) brightness(.9)}
+}
+var.respec-hl-c1{--bg-color:#f4d200}
+var.respec-hl-c2{--bg-color:#ff87a2}
+var.respec-hl-c3{--bg-color:#96e885}
+var.respec-hl-c4{--bg-color:#3eeed2}
+var.respec-hl-c5{--bg-color:#eacfb6}
+var.respec-hl-c6{--bg-color:#82ddff}
+var.respec-hl-c7{--bg-color:#ffbcf2}
+@media print{
+var.respec-hl{background:0 0;color:#000;box-shadow:unset}
+}
+</style>
+<style>
+var{position:relative;cursor:pointer}
+var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
+var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#222}
+var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#222;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
+var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
+</style>
+<script id="initialUserConfig" type="application/json">{
+  "publishDate": "2026-02-11",
+  "latestVersion": "https://www.cta.tech/standards/cta-5004/",
+  "editors": [
+    {
+      "name": "Alexandra Blasgen",
+      "company": "Consumer Technology Association",
+      "mailto": "ablasgen@CTA.tech?subject=Inquiry regarding CTA-5004-A CMCD",
+      "url": "mailto:ablasgen@CTA.tech?subject=Inquiry regarding CTA-5004-A CMCD"
+    }
+  ],
+  "maxTocLevel": 3,
+  "github": {
+    "branch": "master",
+    "repoURL": "cta-wave/common-media-client-data"
+  },
+  "logos": [
+    {
+      "src": "https://cdn.cta.tech/cta/media/media/home/cta-logo.png",
+      "alt": "Consumer Technology Association (CTA)",
+      "height": 65,
+      "width": 100,
+      "id": "cta-logo",
+      "url": "https://cta.tech/"
+    }
+  ],
+  "publishISODate": "2026-02-11T00:00:00.000Z",
+  "generatedSubtitle": "11 February 2026"
+}</script>
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/base.css"></head>
+
+  <body class="h-entry informative"><div class="head">
+    <p class="logos"><a class="logo" href="https://cta.tech/"><img crossorigin="" alt="Consumer Technology Association (CTA)" height="65" id="cta-logo" src="https://cdn.cta.tech/cta/media/media/home/cta-logo.png" width="100">
+  </a></p>
+    <h1 id="title" class="title">Web Application Video Ecosystem<br>Common Media Client Data (CTA-5004-A)</h1> 
+    <p id="w3c-state"> <time class="dt-published" datetime="2026-02-11">11 February 2026</time></p>
+    <details open="">
+      <summary>More details about this document</summary>
+      <dl>
+        
+        <dt>Latest published version:</dt><dd>
+                <a href="https://www.cta.tech/standards/cta-5004/">https://www.cta.tech/standards/cta-5004/</a>
+              </dd>
+        <dt>Latest editor's draft:</dt><dd><a href="https://cta-wave.github.io/common-media-client-data/">https://cta-wave.github.io/common-media-client-data/</a></dd>
+        <dt>History:</dt><dd>
+                    <a href="https://github.com/cta-wave/common-media-client-data/commits/master">Commit history</a>
+                  </dd>
+        
+        
+        
+        
+        
+        <dt>Editor:</dt><dd class="editor p-author h-card vcard">
+    <a class="ed_mailto u-email email p-name" href="mailto:ablasgen@CTA.tech?subject=Inquiry regarding CTA-5004-A CMCD">Alexandra Blasgen</a> (<span class="p-org org h-org">Consumer Technology Association</span>)
+  </dd>
+        
+        
+        <dt>Feedback:</dt><dd>
+        <a href="https://github.com/cta-wave/common-media-client-data/">GitHub cta-wave/common-media-client-data</a>
+        (<a href="https://github.com/cta-wave/common-media-client-data/pulls/">pull requests</a>,
+        <a href="https://github.com/cta-wave/common-media-client-data/issues/new/choose">new issue</a>,
+        <a href="https://github.com/cta-wave/common-media-client-data/issues/">open issues</a>)
+      </dd>
+        
+        
+      </dl>
+    </details>
+    
+    
+    <p class="copyright">
+
+<strong>NOTICE</strong><br>Consumer Technology Association (CTA)™ Standards, Bulletins and other technical publications are designed to serve the public interest through eliminating misunderstandings between manufacturers and purchasers, facilitating interchangeability and improvement of products, and assisting the reader in selecting and obtaining with minimum delay the proper product for the reader’s particular need. Existence of such Standards, Bulletins and other technical publications shall not in any respect preclude any member or nonmember of the Consumer Technology Association from manufacturing or selling products not conforming to such Standards, Bulletins or other technical publications, nor shall the existence of such Standards, Bulletins and other technical publications preclude their voluntary use by those other than Consumer Technology Association members, whether the standard is to be used either domestically or internationally.<br><br>
+Standards and Publications are adopted by CTA in accordance with American National Standards Institute (ANSI) patent policy. By such action, neither CTA nor ANSI assumes any liability to any patent owner, nor does either organization assume any obligation whatever to parties adopting the Standard or Publication. CTA and ANSI take no position with respect to the validity of any Essential Patent Claim relating to this standard. Neither CTA nor ANSI is responsible for identifying patents for which a license may be required in order to comply with any CTA or ANS standard.<br><br>
+This document does not purport to address all safety problems associated with its use or all applicable regulatory requirements. It is the responsibility of the user of this document to establish appropriate safety and health practices and to determine the applicability of regulatory limitations before its use. This document is copyrighted by the Consumer Technology Association (CTA)™ and may not be reproduced, in whole or part, without written permission. Federal copyright law prohibits unauthorized reproduction of this document by any means. Organizations may obtain permission to reproduce a limited number of copies by entering into a license agreement. Requests to reproduce text, data, charts, figures or other material should be made to the Consumer Technology Association (CTA)®. (This document was produced by CTA WAVE.)<br><br>
+Published by ©CONSUMER TECHNOLOGY ASSOCIATION 2026 Technology &amp; Standards Department www.cta.tech<br>
+All rights reserved</p>
+    <hr title="Separator for header">
+  </div>
+
+    
+    
+
+    <section id="abstract" class="introductory"><h2>Abstract</h2>
+      <p>
+
+        This document outlines a simple means by which every media player can communicate data with each media object request and have it received and processed consistently by every CDN.<br><br>
+        This is an approved and published CTA WAVE standard document. All CTA standards are available at <a href="https://CTA.tech/Standards" target="_blank">CTA.tech/Standards</a>.
+      </p>
+    </section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#data-transmission-modes"><bdi class="secno">2. </bdi>Data transmission modes</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#header-field-definition"><bdi class="secno">2.1 </bdi>Header field definition</a></li><li class="tocline"><a class="tocxref" href="#query-argument-definition"><bdi class="secno">2.2 </bdi>Query Argument definition</a></li><li class="tocline"><a class="tocxref" href="#json-object-definition"><bdi class="secno">2.3 </bdi>JSON Object definition</a></li></ol></li><li class="tocline"><a class="tocxref" href="#data-payload-definition"><bdi class="secno">3. </bdi>Data payload definition</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#payload-definition-for-json-transmission"><bdi class="secno">3.1 </bdi>Payload definition for JSON transmission</a></li><li class="tocline"><a class="tocxref" href="#payload-definition-for-headers-and-query-argument-transmission"><bdi class="secno">3.2 </bdi>Payload definition for Headers and Query Argument transmission</a></li><li class="tocline"><a class="tocxref" href="#reserved-keys"><bdi class="secno">3.3 </bdi>Reserved keys</a></li></ol></li><li class="tocline"><a class="tocxref" href="#server-processing-requirements"><bdi class="secno">4. </bdi>Server processing requirements</a></li><li class="tocline"><a class="tocxref" href="#security-and-privacy-considerations"><bdi class="secno">5. </bdi>Security and Privacy Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#threat-environment"><bdi class="secno">5.1 </bdi>Threat Environment</a></li><li class="tocline"><a class="tocxref" href="#threats-to-the-server"><bdi class="secno">5.2 </bdi>Threats to the Server</a></li><li class="tocline"><a class="tocxref" href="#threats-to-the-client"><bdi class="secno">5.3 </bdi>Threats to the Client</a></li><li class="tocline"><a class="tocxref" href="#specific-mitigations"><bdi class="secno">5.4 </bdi>Specific Mitigations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#examples"><bdi class="secno">6. </bdi>Examples</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#header-examples"><bdi class="secno">6.1 </bdi>Header examples</a></li><li class="tocline"><a class="tocxref" href="#corresponding-query-arg-examples"><bdi class="secno">6.2 </bdi>Corresponding Query Arg examples</a></li><li class="tocline"><a class="tocxref" href="#corresponding-json-examples"><bdi class="secno">6.3 </bdi>Corresponding JSON examples</a></li></ol></li><li class="tocline"><a class="tocxref" href="#external-references"><bdi class="secno">7. </bdi>External References</a></li></ol></nav>
+
+
+    
+
+
+
+
+
+<section id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div>
+<p>Media player clients can convey information to Content Delivery Networks (CDN) with each object request. This information can be useful in log analysis, QoS monitoring and delivery optimization. Session identification allows thousands of individual server log lines to be interpreted as a single user session, leading to a clearer picture of end-user quality of service. Bitrate, buffer and segment signaling allow CDNs to fine-tune and optimize their midgress traffic by intelligently reacting to the time constraints implicit in each request. Prefetch hints allow CDNs to have content ready at the edge ahead of the client request, improving delivery performance. Buffer starvation flags allow performance problems across a multi-CDN delivery surface to be identified in real-time. In combination, this transferred data should improve the quality-of-service offered by CDNs which in turn will improve the quality-of-experience enjoyed by consumers.</p>
+<p>The key words "<em class="rfc2119">MUST</em>", "<em class="rfc2119">MUST NOT</em>", "<em class="rfc2119">REQUIRED</em>", "<em class="rfc2119">SHALL</em>", "<em class="rfc2119">SHALL NOT</em>", "<em class="rfc2119">SHOULD</em>", "<em class="rfc2119">SHOULD NOT</em>", "<em class="rfc2119">RECOMMENDED</em>", "<em class="rfc2119">NOT RECOMMENDED</em>", "<em class="rfc2119">MAY</em>", and "<em class="rfc2119">OPTIONAL</em>" in this document are to be interpreted as described in RFC2119 [1].</p>
+<p>This document outlines a simple means by which every media player can communicate data with each media object request and have it received and processed consistently by every CDN.</p>
+</section><section id="data-transmission-modes"><div class="header-wrapper"><h2 id="x2-data-transmission-modes"><bdi class="secno">2. </bdi>Data transmission modes</h2><a class="self-link" href="#data-transmission-modes" aria-label="Permalink for Section 2."></a></div>
+<p>The media client data can be sent by one of three means:</p>
+<ul>
+<li>As a custom HTTP request header</li>
+<li>As a HTTP query argument</li>
+<li>As a JSON object independent of the HTTP object request.</li>
+</ul>
+<p>A HTTP request can carry a Common Media Client Data (CMCD) header or a CMCD query arg, but it <em class="rfc2119">MUST NOT</em> carry both. The preferred mode of transmission for HTTP requests is to use custom headers.</p>
+<p>Note: usage of a custom header from a web browser user-agent will trigger a preflight OPTIONS request before each unique media object request. This will lead to an increased request rate against the server. As a result, for CMCD transmissions from web browser user-agents that require CORS-preflighting per URL, the preferred mode of use is query arguments.</p>
+<section id="header-field-definition"><div class="header-wrapper"><h3 id="x2-1-header-field-definition"><bdi class="secno">2.1 </bdi>Header field definition</h3><a class="self-link" href="#header-field-definition" aria-label="Permalink for Section 2.1"></a></div>
+<p>Four headers are defined to transmit the data. The payload key/value pairs are sharded over these headers based upon their expected level of entropy, in order to assist with HPACK/QPACK [2] header compression. The headers begin with the prefix "CMCD-" and have the following case-insensitive names:</p>
+<p>CMCD-Request</p>
+<p>CMCD-Object</p>
+<p>CMCD-Status</p>
+<p>CMCD-Session</p>
+</section><section id="query-argument-definition"><div class="header-wrapper"><h3 id="x2-2-query-argument-definition"><bdi class="secno">2.2 </bdi>Query Argument definition</h3><a class="self-link" href="#query-argument-definition" aria-label="Permalink for Section 2.2"></a></div>
+<p>The query argument is case-sensitive and capitalization <em class="rfc2119">MUST</em> be used</p>
+<p>CMCD=&lt;URL_encoded_concatenation_of_key_value_pairs&gt;&lt;reserved_character&gt;</p>
+<p>The reserved character is defined by RFC3986 [3]. This reserved character is optional at the end of the URL.</p>
+<p>If the request already bears a query string, then an ampersand Unicode 0x26 character should precede the CMCD field.</p>
+</section><section id="json-object-definition"><div class="header-wrapper"><h3 id="x2-3-json-object-definition"><bdi class="secno">2.3 </bdi>JSON Object definition</h3><a class="self-link" href="#json-object-definition" aria-label="Permalink for Section 2.3"></a></div>
+<p>{ &lt;key&gt;:&lt;value&gt;, … }</p>
+<p>The JSON object must follow the formatting requirements defined by RFC8259 [4]. Key names and values are defined in Table 1.</p>
+</section></section><section id="data-payload-definition"><div class="header-wrapper"><h2 id="x3-data-payload-definition"><bdi class="secno">3. </bdi>Data payload definition</h2><a class="self-link" href="#data-payload-definition" aria-label="Permalink for Section 3."></a></div>
+<section id="payload-definition-for-json-transmission"><div class="header-wrapper"><h3 id="x3-1-payload-definition-for-json-transmission"><bdi class="secno">3.1 </bdi>Payload definition for JSON transmission</h3><a class="self-link" href="#payload-definition-for-json-transmission" aria-label="Permalink for Section 3.1"></a></div>
+<ol>
+<li>The key names described in this specification are reserved. Custom key names may be used, but they <em class="rfc2119">MUST</em> carry a hyphenated prefix to ensure that there will not be a namespace collision with future revisions to this specification. Clients <em class="rfc2119">SHOULD</em> use a reverse-DNS syntax when defining their own prefix.</li>
+<li>All key names are case-sensitive.</li>
+<li>Values of type Token in Table 1 <em class="rfc2119">MUST</em> be encoded as JSON type String.</li>
+<li>Values of type Decimal and Integer in Table 1 <em class="rfc2119">MUST</em> be encoded as JSON type Number.</li>
+<li>Values of type Boolean in Table 1 <em class="rfc2119">MUST</em> be encoded as JSON type Boolean [4].</li>
+<li>All keys are <em class="rfc2119">OPTIONAL</em>.</li>
+<li>Key-value pairs <em class="rfc2119">SHOULD</em> be sequenced in alphabetical order of the key name in order to reduce the fingerprinting surface exposed by the player.</li>
+<li>Transport Layer Security <em class="rfc2119">SHOULD</em> be used to protect all transmission of CMCD data.</li>
+</ol>
+</section><section id="payload-definition-for-headers-and-query-argument-transmission"><div class="header-wrapper"><h3 id="x3-2-payload-definition-for-headers-and-query-argument-transmission"><bdi class="secno">3.2 </bdi>Payload definition for Headers and Query Argument transmission</h3><a class="self-link" href="#payload-definition-for-headers-and-query-argument-transmission" aria-label="Permalink for Section 3.2"></a></div>
+<p>The data payload for Header and Query Argument transmission consists of a series of key/value pairs constructed according to the following rules:</p>
+<ol>
+<li>All information in the payload <em class="rfc2119">MUST</em> be represented as &lt;key&gt;=&lt;value&gt; pairs.</li>
+<li>The key and value <em class="rfc2119">MUST</em> be separated by an equals sign Unicode 0x3D. If the value type is BOOLEAN and the value is TRUE, then the equals sign and the value <em class="rfc2119">MUST</em> be omitted.</li>
+<li>Successive key/value pairs <em class="rfc2119">MUST</em> be delimited by a comma Unicode 0x2C.</li>
+<li>The key names described in this specification are reserved. Custom key names may be used, but they <em class="rfc2119">MUST</em> carry a hyphenated prefix to ensure that there will not be a namespace collision with future revisions to this specification. Clients <em class="rfc2119">SHOULD</em> use a reverse-DNS syntax when defining their own prefix.</li>
+<li>If headers are used for data transmission, then custom keys <em class="rfc2119">SHOULD</em> be allocated to one of the four defined header names based upon their expected level of variability:</li>
+<ol>
+<li>CMCD-Request : keys whose values vary with each request.</li>
+<li>CMCD-Object : keys whose values vary with the object being requested.</li>
+<li>CMCD-Status : keys whose values don’t vary with every request or object.</li>
+<li>CMCD-Session : keys whose values are expected to be invariant over the life of the session.</li>
+</ol>
+<li>All key names are case-sensitive.</li>
+<li>Any value of type String <em class="rfc2119">MUST</em> be enclosed by opening and closing double quotes Unicode 0x22. Double quotes and backslashes <em class="rfc2119">MUST</em> be escaped using a backslash "\" Unicode 0x5C character. Any value of type Token does not require quoting.</li>
+<li>All keys are <em class="rfc2119">OPTIONAL</em>.</li>
+<li>Key-value pairs <em class="rfc2119">SHOULD</em> be sequenced in alphabetical order of the key name, in order to reduce the fingerprinting surface exposed by the player.</li>
+<li>If the data payload is transmitted as a query argument, then the entire payload string <em class="rfc2119">MUST</em> be URLEncoded per [5]. Data payloads transmitted via headers <em class="rfc2119">MUST NOT</em> be URLEncoded.</li>
+<li>The data payload syntax is intended to be compliant with Structured Field Values for HTTP [6].</li>
+<li>Transport Layer Security <em class="rfc2119">SHOULD</em> be used to protect all transmission of CMCD data.</li>
+</ol>
+</section><section id="reserved-keys"><div class="header-wrapper"><h3 id="x3-3-reserved-keys"><bdi class="secno">3.3 </bdi>Reserved keys</h3><a class="self-link" href="#reserved-keys" aria-label="Permalink for Section 3.3"></a></div>
+<p>The reserved keys and their definitions are defined in Table 1 below:</p>
+<table width="723">
+<tbody>
+<tr>
+<td width="130">
+<p><strong>Description</strong></p>
+</td>
+<td width="56">
+<p><strong>Key Name</strong></p>
+</td>
+<td width="69">
+<p><strong>Header Name</strong></p>
+</td>
+<td width="148">
+<p><strong>Type &amp; Unit</strong></p>
+</td>
+<td width="320">
+<p><strong>Value definition</strong></p>
+</td>
+</tr>
+<tr>
+<td width="130">
+<div class="header-wrapper"><h3 id="encoded-bitrate">Encoded bitrate</h3><a class="self-link" href="#encoded-bitrate" aria-label="Permalink for this Section"></a></div>
+</td>
+<td width="56">
+<p>br</p>
+</td>
+<td width="69">
+<p>CMCD-Object</p>
+</td>
+<td width="148">
+<p>Integer kbps</p>
+</td>
+<td width="320">
+<p>The encoded bitrate of the audio or video object being requested. This may not be known precisely by the player, however it <em class="rfc2119">MAY</em> be estimated based upon playlist/manifest declarations. If the playlist declares both peak and average bitrate values, the peak value should be transmitted.</p>
+</td>
+</tr>
+<tr>
+<td width="130">
+<div class="header-wrapper"><h3 id="buffer-length">Buffer length</h3><a class="self-link" href="#buffer-length" aria-label="Permalink for this Section"></a></div>
+</td>
+<td width="56">
+<p>bl</p>
+</td>
+<td width="69">
+<p>CMCD-Request</p>
+</td>
+<td width="148">
+<p>Integer milliseconds</p>
+</td>
+<td width="320">
+<p>The buffer length associated with the media object being requested. This value <em class="rfc2119">MUST</em> be rounded to the nearest 100 ms. This key <em class="rfc2119">SHOULD</em> only be sent with an object type of ‘a’,‘v’ or ‘av’.</p>
+</td>
+</tr>
+<tr>
+<td width="130">
+<div class="header-wrapper"><h3 id="buffer-starvation">Buffer starvation</h3><a class="self-link" href="#buffer-starvation" aria-label="Permalink for this Section"></a></div>
+</td>
+<td width="56">
+<p>bs</p>
+</td>
+<td width="69">
+<p>CMCD-Status</p>
+</td>
+<td width="148">
+<p>Boolean</p>
+</td>
+<td width="320">
+<p>Key is included without a value if the buffer was starved at some point between the prior request and this object request, resulting in the player being in a rebuffering state and the video or audio playback being stalled. This key <em class="rfc2119">MUST NOT</em> be sent if the buffer was not starved since the prior request.&nbsp;</p>
+<p>If the object type ‘ot’ key is sent along with this key, then the ‘bs’ key refers to the buffer associated with the particular object type. If no object type is communicated, then the buffer state applies to the current session.</p>
+</td>
+</tr>
+<tr>
+<td width="130">
+<div class="header-wrapper"><h3 id="content-id">Content ID</h3><a class="self-link" href="#content-id" aria-label="Permalink for this Section"></a></div>
+</td>
+<td width="56">
+<p>cid</p>
+</td>
+<td width="69">
+<p>CMCD-Session</p>
+</td>
+<td width="148">
+<p>String</p>
+</td>
+<td width="320">
+<p>A unique string identifying the current content. Maximum length is 64 characters. This value is consistent across multiple different sessions and devices and is defined and updated at the discretion of the service provider.</p>
+</td>
+</tr>
+<tr>
+<td width="130">
+<div class="header-wrapper"><h3 id="object-duration">Object duration</h3><a class="self-link" href="#object-duration" aria-label="Permalink for this Section"></a></div>
+</td>
+<td width="56">
+<p>d</p>
+</td>
+<td width="69">
+<p>CMCD-Object</p>
+</td>
+<td width="148">
+<p>Integer milliseconds</p>
+</td>
+<td width="320">
+<p>The playback duration in milliseconds of the object being requested. If a partial segment is being requested, then this value <em class="rfc2119">MUST</em> indicate the playback duration of that part and not that of its parent segment. This value can be an approximation of the estimated duration if the explicit value is not known.</p>
+</td>
+</tr>
+<tr>
+<td width="130">
+<div class="header-wrapper"><h3 id="deadline">Deadline</h3><a class="self-link" href="#deadline" aria-label="Permalink for this Section"></a></div>
+</td>
+<td width="56">
+<p>dl</p>
+</td>
+<td width="69">
+<p>CMCD-Request</p>
+</td>
+<td width="148">
+<p>Integer milliseconds</p>
+</td>
+<td width="320">
+<p>Deadline from the request time until the first sample of this Segment/Object needs to be available in order to not create a buffer underrun or any other playback problems. This value <em class="rfc2119">MUST</em> be rounded to the nearest 100ms. For a playback rate of 1, this may be equivalent to the player’s remaining buffer length.</p>
+</td>
+</tr>
+<tr>
+<td width="130">
+<div class="header-wrapper"><h3 id="measured-throughput">Measured throughput</h3><a class="self-link" href="#measured-throughput" aria-label="Permalink for this Section"></a></div>
+</td>
+<td width="56">
+<p>mtp</p>
+</td>
+<td width="69">
+<p>CMCD-Request</p>
+</td>
+<td width="148">
+<p>Integer kilobits per second (kbps)</p>
+</td>
+<td width="320">
+<p>The throughput between client and server, as measured by the client and <em class="rfc2119">MUST</em> be rounded to the nearest 100 kbps. This value, however derived, <em class="rfc2119">SHOULD</em> be the value that the client is using to make its next Adaptive Bitrate switching decision. If the client is connected to multiple servers concurrently, it must take care to report only the throughput measured against the receiving server. If the client has multiple concurrent connections to the server, then the intent is that this value communicates the aggregate throughput the client sees across all those connections.</p>
+</td>
+</tr>
+<tr>
+<td width="130">
+<div class="header-wrapper"><h3 id="next-object-request">Next object request</h3><a class="self-link" href="#next-object-request" aria-label="Permalink for this Section"></a></div>
+</td>
+<td width="56">
+<p>nor</p>
+</td>
+<td width="69">
+<p>CMCD-Request</p>
+</td>
+<td width="148">
+<p>String</p>
+</td>
+<td width="320">
+<p>Relative path of the next object to be requested. This can be used to trigger pre-fetching by the CDN.This <em class="rfc2119">MUST</em> be a path relative to the current request. This string <em class="rfc2119">MUST</em> be URLEncoded [5]. The client <em class="rfc2119">SHOULD NOT</em> depend upon any pre-fetch action being taken - it is merely a request for such a pre-fetch to take place.</p>
+</td>
+</tr>
+<tr>
+<td width="130">
+<div class="header-wrapper"><h3 id="next-range-request">Next range request</h3><a class="self-link" href="#next-range-request" aria-label="Permalink for this Section"></a></div>
+</td>
+<td width="56">
+<p>nrr</p>
+</td>
+<td width="69">
+<p>CMCD-Request</p>
+</td>
+<td width="148">
+<p>String of the form "&lt;range-start&gt;-&lt;range-end&gt;"</p>
+</td>
+<td width="320">
+<p>If the next request will be a partial object request, then this string denotes the byte range to be requested. If the ‘nor’ field is not set, then the object is assumed to match the object currently being requested. The client <em class="rfc2119">SHOULD NOT</em> depend upon any pre-fetch action being taken - it is merely a request for such a pre-fetch to take place. Formatting is similar to the HTTP Range header, except that the unit <em class="rfc2119">MUST</em> be ‘byte’, the ‘Range:’ prefix is NOT required and specifying multiple ranges is NOT allowed. Valid combinations are:</p>
+<p>"&lt;range-start&gt;-"</p>
+<p>"&lt;range-start&gt;-&lt;range-end&gt;"</p>
+<p>"-&lt;suffix-length&gt;"</p>
+</td>
+</tr>
+<tr>
+<td width="130">
+<div class="header-wrapper"><h3 id="object-type">Object type</h3><a class="self-link" href="#object-type" aria-label="Permalink for this Section"></a></div>
+</td>
+<td width="56">
+<p>ot</p>
+</td>
+<td width="69">
+<p>CMCD-Object</p>
+</td>
+<td width="148">
+<p>Token - one of [m, a,v,av,i,c,tt,k,o]</p>
+</td>
+<td width="320">
+<p>The media type of the current object being requested:</p>
+<p>m = text file, such as a manifest or playlist</p>
+<p>a = audio only</p>
+<p>v = video only</p>
+<p>av = muxed audio and video</p>
+<p>i = init segment</p>
+<p>c = caption or subtitle</p>
+<p>tt = ISOBMFF timed text track</p>
+<p>k = cryptographic key, license or certificate.</p>
+<p>o = other</p>
+<p>If the object type being requested is unknown, then this key <em class="rfc2119">MUST NOT</em> be used.</p>
+</td>
+</tr>
+<tr>
+<td width="130">
+<div class="header-wrapper"><h3 id="playback-rate">Playback rate</h3><a class="self-link" href="#playback-rate" aria-label="Permalink for this Section"></a></div>
+</td>
+<td width="56">
+<p>pr</p>
+</td>
+<td width="69">
+<p>CMCD-Session</p>
+</td>
+<td width="148">
+<p>Decimal</p>
+</td>
+<td width="320">
+<p>1 if real-time, 2 if double speed, 0 if not playing. <em class="rfc2119">SHOULD</em> only be sent if not equal to 1.</p>
+</td>
+</tr>
+<tr>
+<td width="130">
+<div class="header-wrapper"><h3 id="requested-maximum-throughput">Requested maximum throughput</h3><a class="self-link" href="#requested-maximum-throughput" aria-label="Permalink for this Section"></a></div>
+</td>
+<td width="56">
+<p>rtp</p>
+</td>
+<td width="69">
+<p>CMCD-Status</p>
+</td>
+<td width="148">
+<p>Integer kilobits per second (kbps)</p>
+</td>
+<td width="320">
+<p>The requested maximum throughput that the client considers sufficient for delivery of the asset. Values <em class="rfc2119">MUST</em> be rounded to the nearest 100kbps. For example, a client would indicate that the current segment, encoded at 2Mbps, is to be delivered at no more than 10Mbps, by using rtp=10000.&nbsp;</p>
+<p>Note: This can benefit clients by preventing buffer saturation through over-delivery and can also deliver a community benefit through fair-share delivery. The concept is that each client receives the throughput necessary for great performance, but no more. The CDN may not support the rtp feature.</p>
+</td>
+</tr>
+<tr>
+<td width="130">
+<div class="header-wrapper"><h3 id="streaming-format">Streaming format</h3><a class="self-link" href="#streaming-format" aria-label="Permalink for this Section"></a></div>
+</td>
+<td width="56">
+<p>sf</p>
+</td>
+<td width="69">
+<p>CMCD-Session</p>
+</td>
+<td width="148">
+<p>Token - one of [d,h,s,o]</p>
+</td>
+<td width="320">
+<p>The streaming format which defines the current request</p>
+<p>d = MPEG DASH</p>
+<p>h = HTTP Live Streaming (HLS)</p>
+<p>s = Smooth Streaming</p>
+<p>o = other</p>
+<p>If the streaming format being requested is unknown, then this key <em class="rfc2119">MUST NOT</em> be used.</p>
+</td>
+</tr>
+<tr>
+<td width="130">
+<div class="header-wrapper"><h3 id="session-id">Session ID</h3><a class="self-link" href="#session-id" aria-label="Permalink for this Section"></a></div>
+</td>
+<td width="56">
+<p>sid</p>
+</td>
+<td width="69">
+<p>CMCD-Session</p>
+</td>
+<td width="148">
+<p>String</p>
+</td>
+<td width="320">
+<p>A GUID identifying the current playback session. A playback session typically ties together segments belonging to a single media asset. Maximum length is 64 characters. It is <em class="rfc2119">RECOMMENDED</em> to conform to the UUID specification [7].</p>
+</td>
+</tr>
+<tr>
+<td width="130">
+<div class="header-wrapper"><h3 id="stream-type">Stream type</h3><a class="self-link" href="#stream-type" aria-label="Permalink for this Section"></a></div>
+</td>
+<td width="56">
+<p>st</p>
+</td>
+<td width="69">
+<p>CMCD-Session</p>
+</td>
+<td width="148">
+<p>Token - one of [v,l]</p>
+</td>
+<td width="320">
+<p>v = all segments are available e.g. VOD</p>
+<p>l = segments become available over time e.g. LIVE</p>
+</td>
+</tr>
+<tr>
+<td width="130">
+<div class="header-wrapper"><h3 id="startup">Startup</h3><a class="self-link" href="#startup" aria-label="Permalink for this Section"></a></div>
+</td>
+<td width="56">
+<p>su</p>
+</td>
+<td width="69">
+<p>CMCD-Request</p>
+</td>
+<td width="148">
+<p>Boolean</p>
+</td>
+<td width="320">
+<p>Key is included without a value if the object is needed urgently due to startup, seeking or recovery after a buffer-empty event. The media <em class="rfc2119">SHOULD</em> not be rendering when this request is made. This key <em class="rfc2119">MUST</em> not be sent if it is FALSE.</p>
+</td>
+</tr>
+<tr>
+<td width="130">
+<div class="header-wrapper"><h3 id="top-bitrate">Top bitrate</h3><a class="self-link" href="#top-bitrate" aria-label="Permalink for this Section"></a></div>
+</td>
+<td width="56">
+<p>tb</p>
+</td>
+<td width="69">
+<p>CMCD-Object</p>
+</td>
+<td width="148">
+<p>Integer Kbps</p>
+</td>
+<td width="320">
+<p>The highest bitrate rendition in the manifest or playlist that the client is allowed to play, given current codec, licensing and sizing constraints.</p>
+</td>
+</tr>
+<tr>
+<td width="130">
+<div class="header-wrapper"><h3 id="cmcd-version">CMCD version</h3><a class="self-link" href="#cmcd-version" aria-label="Permalink for this Section"></a></div>
+</td>
+<td width="56">
+<p>v</p>
+</td>
+<td width="69">
+<p>CMCD-Session</p>
+</td>
+<td width="148">
+<p>Integer</p>
+</td>
+<td width="320">
+<p>The version of this specification used for interpreting the defined key names and values. If this key is omitted, the client and server <em class="rfc2119">MUST</em> interpret the values as being defined by version 1. Client <em class="rfc2119">SHOULD</em> omit this field if the version is 1.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Table 1: Reserved Key and Value definitions</p>
+<p>It is <em class="rfc2119">RECOMMENDED</em> that a player supply sid on all media object requests in a session, including playlists/manifests, init files, captioning files and DRM key requests. Other keys should be applied where they have contextual meaning. For example, a ‘br’ (bitrate) key on a manifest request is inappropriate and could be omitted.</p>
+</section></section><section id="server-processing-requirements"><div class="header-wrapper"><h2 id="x4-server-processing-requirements"><bdi class="secno">4. </bdi>Server processing requirements</h2><a class="self-link" href="#server-processing-requirements" aria-label="Permalink for Section 4."></a></div>
+<ol>
+<li>Server <em class="rfc2119">MUST</em> only process these requirements when data is received via a valid CMCD header or query arg.</li>
+<li>A server, upon receiving common media client data, <em class="rfc2119">MUST</em> interpret the keys according to their definition in this document.</li>
+<li>Unknown keys, which the server does not understand, <em class="rfc2119">MUST</em> be ignored.</li>
+<li>Values which do not meet the structured data definition (such as an invalid token, or a string when an integer is expected) <em class="rfc2119">MUST</em> be ignored.</li>
+<li>Since there is no guarantee that keys are included, the server <em class="rfc2119">MUST</em> be robust against the absence of individual keys on any given request.</li>
+<li>The server <em class="rfc2119">MUST</em> be able to correctly process the key-value pairs irrespective of the order in which they are defined.</li>
+<li>If the sid key is present, the server <em class="rfc2119">SHOULD</em> propagate that value to the server access logs. The server access logs <em class="rfc2119">SHOULD</em> conform to RFC6302 [8].</li>
+<li>The server <em class="rfc2119">MUST</em> support both the header and query argument methods of data transmission. The server <em class="rfc2119">MUST</em> process data from only the query arg or header channel, but never both for a given request. If any CMCD headers are present then any CMCD query arg information <em class="rfc2119">MUST</em> be ignored.</li>
+<li>The server, upon receiving the requested throughput (rtp) attribute, is not required to throttle the response at the requested value. It is merely a request from the client and the server may have other business requirements that dictate throttling at a different value, or not throttling the response at all.</li>
+<li>The server, upon receiving the nor "next object request" or nrr "next range request" attributes, <em class="rfc2119">MAY</em> optionally decide not to implement any pre-fetch action against that data.</li>
+<li>Servers <em class="rfc2119">SHOULD</em> provide the necessary CORS responses to allow browser-based clients to send custom headers, specifically:</li>
+<ol>
+<li>Access-Control-Allow-Headers response header with a value that contains "CMCD-Request, CMCD-Object, CMCD-Status, CMCD-Session"</li>
+<li>Access-Control-Allow-Methods with a value that includes GET.</li>
+</ol>
+<li>Servers <em class="rfc2119">SHOULD</em> be aware that malicious clients may send false key data with the objective of either attacking the server or gaining an unfair delivery advantage. The server <em class="rfc2119">SHOULD</em> validate incoming key data before any performance impacting behaviors are executed.</li>
+<li>Servers <em class="rfc2119">MUST</em> ignore the entire data set if the signaled version is greater than they understand, as they cannot know which fields have been modified or deprecated. Servers <em class="rfc2119">SHOULD</em> log the version incompatibility so that there is a record of why the data is not getting logged.</li>
+</ol>
+<p>Note: any caching proxy should be aware that the CMCD payload will be constantly changing and therefore has the potential to pollute cache keys. Implementers may wish to exclude CMCD query arguments from any cache key.</p>
+<p>Note: origin servers are advised to not include the CMCD-Request, CMCD-Object, CMCD-Status, CMCD-Session headers in the Vary header [9].</p>
+</section><section id="security-and-privacy-considerations"><div class="header-wrapper"><h2 id="x5-security-and-privacy-considerations"><bdi class="secno">5. </bdi>Security and Privacy Considerations</h2><a class="self-link" href="#security-and-privacy-considerations" aria-label="Permalink for Section 5."></a></div>
+<section id="threat-environment"><div class="header-wrapper"><h3 id="x5-1-threat-environment"><bdi class="secno">5.1 </bdi>Threat Environment</h3><a class="self-link" href="#threat-environment" aria-label="Permalink for Section 5.1"></a></div>
+<p>The data transmitted as defined by this specification is passed between a client device and a Content Delivery Network (CDN), as described in Section 2, Data Transmission Modes. Data is exchanged over HTTP/HTTPS during the regular process of a media client requesting content. The HTTP Request Headers and Query Arguments utilized for data transmission are mature and established technologies for data transmission over the web. Transport Layer Security (TLS) can provide confidentiality and integrity for data during transmission.</p>
+</section><section id="threats-to-the-server"><div class="header-wrapper"><h3 id="x5-2-threats-to-the-server"><bdi class="secno">5.2 </bdi>Threats to the Server</h3><a class="self-link" href="#threats-to-the-server" aria-label="Permalink for Section 5.2"></a></div>
+<p>A malicious client may inject false data. This tactic may be part of replay, message insertion, or modification attacks. If the server-client communication is delivered over HTTP, then man-in-the-middle attacks are feasible. Use of HTTPS for communications mitigates these attacks. All server responses are optional, which aids in server-based protection strategies. The server is not required to take any action upon receiving CMCD data.</p>
+<p>Some limited denial-of-service amplification opportunity exists for malicious clients utilizing the next-object-request key. Requiring the next object to be a relative path to the current request, along with the prefetch operation being optional for the server, helps mitigate this amplification.</p>
+</section><section id="threats-to-the-client"><div class="header-wrapper"><h3 id="x5-3-threats-to-the-client"><bdi class="secno">5.3 </bdi>Threats to the Client</h3><a class="self-link" href="#threats-to-the-client" aria-label="Permalink for Section 5.3"></a></div>
+<p>Privacy concerns resulting from successful eavesdropping and man-in-the-middle attacks in this threat environment indicate the need to strictly limit device-identifiable data. Therefore, fingerprinting opportunities have been minimized; see sections 3.1 and 3.2. Identification confidentiality of content, as described above, is dependent upon protocol-layer protections since the playback client must by definition request playback of specific content pieces to operate.</p>
+<p>Defense against malicious content injected via man-in-the-middle, message insertion, or message modification attacks is likewise dependent upon protocol-layer protections. HTTPS is strongly recommended over HTTP, when applicable, for all CMCD data transmissions over the web.</p>
+</section><section id="specific-mitigations"><div class="header-wrapper"><h3 id="x5-4-specific-mitigations"><bdi class="secno">5.4 </bdi>Specific Mitigations</h3><a class="self-link" href="#specific-mitigations" aria-label="Permalink for Section 5.4"></a></div>
+<p>As discussed above, the specification does not expose any security issues that are not already exposed to a client making media object requests or to an edge server which answers all incoming requests. A number of steps have been taken to mitigate specific security and privacy concerns:</p>
+<p>- The ‘nor’ key value must be a relative path to the current request. This makes it harder to inject false requests to arbitrary objects.</p>
+<p>- Only one object can be requested by the ‘nor’ key value - this lowers amplification opportunity.</p>
+<p>- All requests to the server are optionally executed by the server, meaning that a server can ignore them for security concerns (such as a rate-based threshold being exceeded) and still be compliant with the specification.</p>
+<p>- Session ID is a GUID which is highly unlikely to repeat for a particular user.</p>
+<p>- Measured throughput, requested maximum throughput, deadline and buffer length are bucketed to reduce fingerprinting surface.</p>
+<p>- Key-value pairs should be sequenced in alphabetical order to reduce fingerprinting surface.</p>
+<p>- Personally Identifiable Information fields, such as IP address, cookie information and location data, are intentionally not carried by the specification.</p>
+</section></section><section id="examples"><div class="header-wrapper"><h2 id="x6-examples"><bdi class="secno">6. </bdi>Examples</h2><a class="self-link" href="#examples" aria-label="Permalink for Section 6."></a></div>
+<section id="header-examples"><div class="header-wrapper"><h3 id="x6-1-header-examples"><bdi class="secno">6.1 </bdi>Header examples</h3><a class="self-link" href="#header-examples" aria-label="Permalink for Section 6.1"></a></div>
+<ol>
+<li>CMCD-Session:sid="6e2fb550-c457-11e9-bb97-0800200c9a66"</li>
+<li>CMCD-Request:mtp=25400</li>
+</ol>
+<p>CMCD-Object:br=3200,d=4004,ot=v,tb=6000</p>
+<p>CMCD-Status:bs,rtp=15000</p>
+<p>CMCD-Session:sid="6e2fb550-c457-11e9-bb97-0800200c9a66"</p>
+<ol start="3">
+<li>CMCD-Status:bs,rtp=15000</li>
+</ol>
+<p>CMCD-Session:sid="6e2fb550-c457-11e9-bb97-0800200c9a66"</p>
+<ol start="4">
+<li>CMCD-Status:bs</li>
+</ol>
+<p>CMCD-Request:su</p>
+<ol start="5">
+<li>CMCD-Object:d=4004,</li>
+</ol>
+<p>CMCD-Session:com.example-myNumericKey=500,com.example-myStringKey="myStringValue"</p>
+<ol start="6">
+<li>CMCD-Session:sid="6e2fb550-c457-11e9-bb97-0800200c9a66"</li>
+</ol>
+<p>CMCD-Request:nor="..%2F300kbps%2Fsegment35.m4v"</p>
+<ol start="7">
+<li>CMCD-Session:sid="6e2fb550-c457-11e9-bb97-0800200c9a66"</li>
+</ol>
+<p>CMCD-Request:nrr="12323-48763"</p>
+<ol start="8">
+<li>CMCD-Session:sid="6e2fb550-c457-11e9-bb97-0800200c9a66"</li>
+</ol>
+<p>CMCD-Request:nor="..%2F300kbps%2Ftrack.m4v",nrr="12323-48763"</p>
+<ol start="9">
+<li>CMCD-Request:bl=21300,dl=18500,mtp=48100,nor="..%2F300kbps%2Ftrack.m4v",nrr="12323-48763",su</li>
+</ol>
+<p>CMCD-Object:br=3200,d=4004,ot=v,tb=6000</p>
+<p>CMCD-Status:bs,rtp=12000</p>
+<p>CMCD-Session:cid="faec5fc2-ac30-11ea-bb37-0242ac130002",pr=1.08,sf=d,sid="6e2fb550-c457-11e9-bb97-0800200c9a66",st=v</p>
+</section><section id="corresponding-query-arg-examples"><div class="header-wrapper"><h3 id="x6-2-corresponding-query-arg-examples"><bdi class="secno">6.2 </bdi>Corresponding Query Arg examples</h3><a class="self-link" href="#corresponding-query-arg-examples" aria-label="Permalink for Section 6.2"></a></div>
+<ol>
+<li>?CMCD=sid%3D%226e2fb550-c457-11e9-bb97-0800200c9a66%22</li>
+</ol>
+<ol start="2">
+<li>?CMCD=br%3D3200%2Cbs%2Cd%3D4004%2Cmtp%3D25400%2Cot%3Dv%2Crtp %3D15000%2Csid%3D%226e2fb550-c457-11e9-bb97-0800200c9a66%22%2Ctb%3D6000</li>
+</ol>
+<ol start="3">
+<li>?CMCD=b%2Crtp%3D15000%2Csid%3D%226e2fb550-c457-11e9-bb97-0800200c9a66%22</li>
+</ol>
+<ol start="4">
+<li>?CMCD=bs%2Csu</li>
+</ol>
+<ol start="5">
+<li>?CMCD=d%3D4004%2Ccom.example-myNumericKey%3D500%2Ccom.example-myStringKey%3D%22myStringValue%22</li>
+</ol>
+<ol start="6">
+<li>?CMCD=nor%3D%22..%252F300kbps%252Fsegment35.m4v%22%2Csid%3D%226e2fb550-c457-11e9-bb97-0800200c9a66%22</li>
+</ol>
+<ol start="7">
+<li>?CMCD=nrr%3D%2212323-48763%22%2Csid%3D%226e2fb550-c457-11e9-bb97-0800200c9a66%22</li>
+</ol>
+<ol start="8">
+<li>?CMCD=nor%3D%22..%252F300kbps%252Ftrack.m4v%22%2Cnrr%3D%2212323-48763%22%2Csid%3D%226e2fb550-c457-11e9-bb97-0800200c9a66%22</li>
+</ol>
+<ol start="9">
+<li>?CMCD=bl%3D21300%2Cbr%3D3200%2Cbs%2Ccid%3D%22faec5fc2-ac30-11ea-bb37-0242ac130002%22%2Cd%3D4004%2Cdl%3D18500%2Cmtp%3D48100%2Cnor%3D%22..%252F300kbps%252Ftrack.m4v%22%2Cnrr%3D%2212323-48763%22%2Cot%3Dv%2Cpr%3D1.08%2Crtp%3D12000%2Csf%3Dd%2Csid%3D%226e2fb550-c457-11e9-bb97-0800200c9a66%22%2Cst%3Dv%2Csu%2Ctb%3D6000</li>
+</ol>
+</section><section id="corresponding-json-examples"><div class="header-wrapper"><h3 id="x6-3-corresponding-json-examples"><bdi class="secno">6.3 </bdi>Corresponding JSON examples</h3><a class="self-link" href="#corresponding-json-examples" aria-label="Permalink for Section 6.3"></a></div>
+<ol>
+<li>{"sid": "6e2fb550-c457-11e9-bb97-0800200c9a66"}</li>
+</ol>
+<ol start="2">
+<li>{"br": 3200,"bs":true,"d": 4004,"mtp": 25400, "ot": "v", "rtp":15000,"sid": "6e2fb550-c457-11e9-bb97-0800200c9a66","tb":6000}</li>
+</ol>
+<ol start="3">
+<li>{"bs":true,"rtp":15000,"sid": "6e2fb550-c457-11e9-bb97-0800200c9a66"}</li>
+</ol>
+<ol start="4">
+<li>{"bs":true,"su":true}</li>
+</ol>
+<ol start="5">
+<li>{"d":4004,"com.example-myNumericKey":500,"com.example-myStringKey":"myStringValue"}</li>
+</ol>
+<ol start="6">
+<li>{"nor":"..%2F300kbps%2Fsegment35.m4v","sid":"6e2fb550-c457-11e9-bb97-0800200c9a66"}</li>
+</ol>
+<ol start="7">
+<li>{"nrr":"12323-48763","sid":"6e2fb550-c457-11e9-bb97-0800200c9a66"}</li>
+</ol>
+<ol start="8">
+<li>{"nor":"..%2F300kbps%2Ftrack.m4v","nrr":"12323-48763","sid":"6e2fb550-c457-11e9-bb97-0800200c9a66"}</li>
+</ol>
+<ol start="9">
+<li>{"bl":21300,"br":3200,"bs":true,"cid":"faec5fc2-ac30-11ea-bb37-0242ac130002","d":4004,"dl":18500,"mtp":48100,"nor":"..%2F300kbps%2Ftrack.m4v","nrr":"12323-48763","ot":"v","pr":1.08,"rtp":12000,"sf":"d","sid":"6e2fb550-c457-11e9-bb97-0800200c9a66","st":"v","su":true,"tb":6000}</li>
+</ol>
+</section></section><section id="external-references"><div class="header-wrapper"><h2 id="x7-external-references"><bdi class="secno">7. </bdi>External References</h2><a class="self-link" href="#external-references" aria-label="Permalink for Section 7."></a></div>
+<ol>
+<li>RFC2119 - Key words for use in RFCs to Indicate Requirement Levels - <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a></li>
+<li>RFC7541 - HPACK Header compression - <a href="https://httpwg.org/specs/rfc7541.html">https://httpwg.org/specs/rfc7541.html</a></li>
+<li>RFC3986 - Uniform Resource Identifier (URI): Generic Syntax - <a href="https://tools.ietf.org/html/rfc3986">https://tools.ietf.org/html/rfc3986</a></li>
+<li>RFC8259 - The JavaScript Object Notation (JSON) Data Interchange Format - <a href="https://tools.ietf.org/html/rfc8259">https://tools.ietf.org/html/rfc8259</a></li>
+<li>URL Encoding - <a href="https://url.spec.whatwg.org/#application/x-www-form-urlencoded">https://url.spec.whatwg.org/#application/x-www-form-urlencoded</a></li>
+<li>Structured Field Values for HTTP - <a href="https://www.ietf.org/id/draft-ietf-httpbis-header-structure-18.txt">https://www.ietf.org/id/draft-ietf-httpbis-header-structure-18.txt</a> (work in progress).</li>
+<li>RFC4122 - A Universally Unique IDentifier (UUID) URN Namespace - <a href="https://www.ietf.org/rfc/rfc4122.txt">https://www.ietf.org/rfc/rfc4122.txt</a></li>
+<li>RFC6302 - Logging Recommendations for Internet-Facing Servers - <a href="https://tools.ietf.org/html/rfc6302">https://tools.ietf.org/html/rfc6302</a></li>
+<li>RFC 7231 - Vary header - <a href="http://tools.ietf.org/html/rfc7231#section-7.1.4">http://tools.ietf.org/html/rfc7231#section-7.1.4</a></li>
+</ol>
+
+
+
+
+
+
+
+    
+
+  
+</section><p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><script id="respec-highlight-vars">(() => {
+// @ts-check
+
+if (document.respec) {
+  document.respec.ready.then(setupVarHighlighter);
+} else {
+  setupVarHighlighter();
+}
+
+function setupVarHighlighter() {
+  document
+    .querySelectorAll("var")
+    .forEach(varElem => varElem.addEventListener("click", highlightListener));
+}
+
+function highlightListener(ev) {
+  ev.stopPropagation();
+  const { target: varElem } = ev;
+  const hightligtedElems = highlightVars(varElem);
+  const resetListener = () => {
+    const hlColor = getHighlightColor(varElem);
+    hightligtedElems.forEach(el => removeHighlight(el, hlColor));
+    [...HL_COLORS.keys()].forEach(key => HL_COLORS.set(key, true));
+  };
+  if (hightligtedElems.length) {
+    document.body.addEventListener("click", resetListener, { once: true });
+  }
+}
+
+// availability of highlight colors. colors from var.css
+const HL_COLORS = new Map([
+  ["respec-hl-c1", true],
+  ["respec-hl-c2", true],
+  ["respec-hl-c3", true],
+  ["respec-hl-c4", true],
+  ["respec-hl-c5", true],
+  ["respec-hl-c6", true],
+  ["respec-hl-c7", true],
+]);
+
+function getHighlightColor(target) {
+  // return current colors if applicable
+  const { value } = target.classList;
+  const re = /respec-hl-\w+/;
+  const activeClass = re.test(value) && value.match(re);
+  if (activeClass) return activeClass[0];
+
+  // first color preference
+  if (HL_COLORS.get("respec-hl-c1") === true) return "respec-hl-c1";
+
+  // otherwise get some other available color
+  return [...HL_COLORS.keys()].find(c => HL_COLORS.get(c)) || "respec-hl-c1";
+}
+
+function highlightVars(varElem) {
+  const textContent = norm(varElem.textContent);
+  const parent = varElem.closest(".algorithm, section");
+  const highlightColor = getHighlightColor(varElem);
+
+  const varsToHighlight = [...parent.querySelectorAll("var")].filter(
+    el =>
+      norm(el.textContent) === textContent &&
+      el.closest(".algorithm, section") === parent
+  );
+
+  // update availability of highlight color
+  const colorStatus = varsToHighlight[0].classList.contains("respec-hl");
+  HL_COLORS.set(highlightColor, colorStatus);
+
+  // highlight vars
+  if (colorStatus) {
+    varsToHighlight.forEach(el => removeHighlight(el, highlightColor));
+    return [];
+  } else {
+    varsToHighlight.forEach(el => addHighlight(el, highlightColor));
+  }
+  return varsToHighlight;
+}
+
+function removeHighlight(el, highlightColor) {
+  el.classList.remove("respec-hl", highlightColor);
+  // clean up empty class attributes so they don't come in export
+  if (!el.classList.length) el.removeAttribute("class");
+}
+
+function addHighlight(elem, highlightColor) {
+  elem.classList.add("respec-hl", highlightColor);
+}
+
+/**
+ * Same as `norm` from src/core/utils, but our build process doesn't allow
+ * imports in runtime scripts, so duplicated here.
+ * @param {string} str
+ */
+function norm(str) {
+  return str.trim().replace(/\s+/g, " ");
+}
+})()</script><script id="respec-dfn-panel">(() => {
+// @ts-check
+if (document.respec) {
+  document.respec.ready.then(setupPanel);
+} else {
+  setupPanel();
+}
+
+function setupPanel() {
+  const listener = panelListener();
+  document.body.addEventListener("keydown", listener);
+  document.body.addEventListener("click", listener);
+}
+
+function panelListener() {
+  /** @type {HTMLElement} */
+  let panel = null;
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (type === "keydown" && event.key !== "Enter") return;
+
+    const action = deriveAction(event);
+
+    switch (action) {
+      case "show": {
+        hidePanel(panel);
+        /** @type {HTMLElement} */
+        const dfn = target.closest("dfn, .index-term");
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        const coords = deriveCoordinates(event);
+        displayPanel(dfn, panel, coords);
+        break;
+      }
+      case "dock": {
+        panel.style.left = null;
+        panel.style.top = null;
+        panel.classList.add("docked");
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        panel = null;
+        break;
+      }
+    }
+  };
+}
+
+/**
+ * @param {MouseEvent|KeyboardEvent} event
+ */
+function deriveCoordinates(event) {
+  const target = /** @type HTMLElement */ (event.target);
+
+  // We prevent synthetic AT clicks from putting
+  // the dialog in a weird place. The AT events sometimes
+  // lack coordinates, so they have clientX/Y = 0
+  const rect = target.getBoundingClientRect();
+  if (
+    event instanceof MouseEvent &&
+    event.clientX >= rect.left &&
+    event.clientY >= rect.top
+  ) {
+    // The event probably happened inside the bounding rect...
+    return { x: event.clientX, y: event.clientY };
+  }
+
+  // Offset to the middle of the element
+  const x = rect.x + rect.width / 2;
+  // Placed at the bottom of the element
+  const y = rect.y + rect.height;
+  return { x, y };
+}
+
+/**
+ * @param {Event} event
+ */
+function deriveAction(event) {
+  const target = /** @type {HTMLElement} */ (event.target);
+  const hitALink = !!target.closest("a");
+  if (target.closest("dfn:not([data-cite]), .index-term")) {
+    return hitALink ? "none" : "show";
+  }
+  if (target.closest(".dfn-panel")) {
+    if (hitALink) {
+      return target.classList.contains("self-link") ? "hide" : "dock";
+    }
+    const panel = target.closest(".dfn-panel");
+    return panel.classList.contains("docked") ? "hide" : "none";
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return "none";
+}
+
+/**
+ * @param {HTMLElement} dfn
+ * @param {HTMLElement} panel
+ * @param {{ x: number, y: number }} clickPosition
+ */
+function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement} */
+    const caret = panel.querySelector(".caret");
+    caret.style.left = `${newCaretOffset}px`;
+  }
+
+  // As it's a dialog, we trap focus.
+  // TODO: when <dialog> becomes a implemented, we should really
+  // use that.
+  trapFocus(panel, dfn);
+}
+
+/**
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function trapFocus(panel, dfn) {
+  /** @type NodeListOf<HTMLAnchorElement> elements */
+  const anchors = panel.querySelectorAll("a[href]");
+  // No need to trap focus
+  if (!anchors.length) return;
+
+  // Move focus to first anchor element
+  const first = anchors.item(0);
+  first.focus();
+
+  const trapListener = createTrapListener(anchors, panel, dfn);
+  panel.addEventListener("keydown", trapListener);
+
+  // Hiding the panel releases the trap
+  const mo = new MutationObserver(records => {
+    const [record] = records;
+    const target = /** @type HTMLElement */ (record.target);
+    if (target.hidden) {
+      panel.removeEventListener("keydown", trapListener);
+      mo.disconnect();
+    }
+  });
+  mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+}
+
+/**
+ *
+ * @param {NodeListOf<HTMLAnchorElement>} anchors
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function createTrapListener(anchors, panel, dfn) {
+  const lastIndex = anchors.length - 1;
+  let currentIndex = 0;
+  return event => {
+    switch (event.key) {
+      // Hitting "Tab" traps us in a nice loop around elements.
+      case "Tab": {
+        event.preventDefault();
+        currentIndex += event.shiftKey ? -1 : +1;
+        if (currentIndex < 0) {
+          currentIndex = lastIndex;
+        } else if (currentIndex > lastIndex) {
+          currentIndex = 0;
+        }
+        anchors.item(currentIndex).focus();
+        break;
+      }
+
+      // Hitting "Enter" on an anchor releases the trap.
+      case "Enter":
+        hidePanel(panel);
+        break;
+
+      // Hitting "Escape" returns focus to dfn.
+      case "Escape":
+        hidePanel(panel);
+        dfn.focus();
+        return;
+    }
+  };
+}
+
+/** @param {HTMLElement} panel */
+function hidePanel(panel) {
+  if (!panel) return;
+  panel.hidden = true;
+  panel.classList.remove("docked");
+}
+})()</script><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
