@@ -73,17 +73,28 @@ This page collects the CTA WAVE extended resources. Some of the documents are pu
 * [Web Media API Snapshot 2017 (CTA-5000) December 2017 (pdf, public)](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5000-final-v2_pdf.pdf)
 * [Web Media API Snapshot 2018 (CTA-5000-A) December 2018 (pdf, public)](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5000-a-final.pdf)
 * [Web Media API Snapshot 2019 (CTA-5000-B) December 2019 (pdf, public)](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5000-b-final_v2.pdf)
-* [Web Media Application Developer Guidelines (CTA-5002) Published December 2018 (pdf, public)](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5002-final.pdf)
+* [Web Media API Snapshot 2020 (CTA-5000-C), December 2020](https://www.cta.tech/standards/wave-web-media-api-snapshot-2020/)
+* [Web Media API Snapshot 2021 (CTA-5000-D), December 2021](https://www.cta.tech/standards/wave-web-media-api-snapshot-2021/)
+* [Web Media API Snapshot 2022 (CTA-5000-E), December 2022](https://www.cta.tech/standards/wave-web-media-api-snapshot-2022/)
+* [Web Media API Snapshot 2023 (CTA-5000-F), November 2023](https://www.cta.tech/standards/cta-5000-f/)
+* [Web Media API Snapshot 2024 (CTA-5000-G April 2025 update with Errata)](https://www.cta.tech/resources-folder/standards/cta-5000-g-errata/)
+* [Web Media API Snapshot 2025 (CTA-5000-H), October 2025](https://www.cta.tech/standards/web-application-video-ecosystem-web-media-api-snapshot-2025/)
 
 ### Specification Development
 
-* [Web Media API Snapshot 2020 (Online Draft)](https://w3c.github.io/webmediaapi/)
-* [Github for comments against Web Media API Snapshot 2020](https://github.com/w3c/webmediaapi/issues/)
+* [Web Media API Snapshot (Latest Draft)](https://w3c.github.io/webmediaapi/)
+* [Github for comments against Web Media API Snapshot](https://github.com/w3c/webmediaapi/issues/)
 
 ### Test Resources
-* Web Media API Snapshot 2018 Test Suite 
-  * [Online Hosted Version - Free for Public Access (unblock port 8050)](https://webapitests2018.ctawave.org/)
-  * [Open Source version (for porting to e.g., smart TVs)](https://github.com/cta-wave/WMAS)
+* Web Media API Snapshot Test Suites - Online Hosted Versions (unblock port 8050)
+  * [WMAS2017 Test Suite](https://webapitests2017.ctawave.org/)
+  * [WMAS2018 Test Suite](https://webapitests2018.ctawave.org/)
+  * [WMAS2019 Test Suite](https://webapitests2019.ctawave.org/)
+  * [WMAS2020 Test Suite](https://webapitests2020.ctawave.org/)
+  * [WMAS2021 Test Suite](https://webapitests2021.ctawave.org/)
+  * [WMAS2022 Test Suite](https://webapitests2022.ctawave.org/)
+  * [WMAS2023 Test Suite](https://webapitests2023.ctawave.org/)
+* [Open Source version (for porting to e.g., smart TVs)](https://github.com/cta-wave/WMAS)
 
 ## HLS-DASH Interop Task Force
 
