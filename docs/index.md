@@ -11,44 +11,26 @@ This page collects the CTA WAVE extended resources. Some of the documents are pu
 * [Device Playback Task Force](#device-playback-task-force)
 * [HTML5 API Task Force](#html5-api-task-force)
 * [HLS-DASH Interop Task Force](#hls-dash-interop-task-force)
-* [Common Media Client Data](#common-media-client-data)
-* [CMAF Byte Stream Format Activity](#CMAF-Byte-Stream-Format-Activity) 
 
 ## Content Specification Task Force
 
 ### Published Specifications 
-* [WAVE Content Specification, 2018 Edition, April 2018](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5001-final_v2_pdf.pdf) 
-* [WAVE Content Specification, 2018 Edition, Amendment 1, December 2018](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5001-a-final.pdf) 
-* [WAVE Content Specification, 2019 Edition, December 2019](https://cdn.cta.tech/cta/media/media/resources/standards/cta-5001-b-final.pdf)
+* [WAVE Content Specification, 2025 Edition, May 2025](https://www.cta.tech/standards/cta-5001-f/) 
 
 ### Supporting Documents
 * [Content Specification Task Force Media Profile Wiki](https://github.com/cta-wave/content-specification-task-force/wiki) 
 * [Content Specification Task Force Issues](https://github.com/cta-wave/content-specification-task-force/issues) 
 * [DASH-IF Conformance Software Issues](https://github.com/Dash-Industry-Forum/DASH-IF-Conformance/issues)
 * [Media Profile Approval Process](https://standards.cta.tech/apps/org/workgroup/cstf/download.php/22529/cstf-00035-v000-WAVE%20Media%20Profile%20Approval%20Process.docx) 
-* [CMAF Testable Assertions, Nomor annotated CMAF FDIS](https://standards.cta.tech/apps/org/workgroup/cstf/download.php/26818/latest) 
-* [CMAF Technologies under Consideration (TuC)](https://standards.cta.tech/apps/org/workgroup/cstf/download.php/27416/w18591%20Technologies_Under_Consideration_CMAF.doc) 
-* [CMAF 2nd Edition FDIS (w18636)](https://standards.cta.tech/apps/org/workgroup/wtwg/download.php/27773/w18636-v4-w18636.zip)
 * [DASH Profile for CMAF, ISO/IEC 23009-1:2020/Draft DAM1](https://standards.cta.tech/apps/org/workgroup/wtwg/download.php/29429/29n18626_CTA_WAVE.zip) 
-* [DASH-IF “Advanced Ad Insertion in DASH”](https://dashif.org/docs/CR-Ad-Insertion-r5.pdf)
-* [Draft of proposed revision of SCTE 215-1-1](https://standards.cta.tech/apps/org/workgroup/wtwg/document.php?document_id=30154)
-
-### Internal Drafts
-* [WAVE Content Specification, 2018 Edition, Amendment 1, final Word version](https://standards.cta.tech/apps/org/workgroup/cstf/document.php?document_id=25036)
-* [WAVE Content Specification, 2019 Edition, 11-07-2019 - TWG Review Draft, Correction](https://standards.cta.tech/apps/org/workgroup/wtwg/document.php?document_id=28517)
-* [WAVE Content Specification, CTA-5001-B Content Specification (2019 Edition) – Final Word Version](https://standards.cta.tech/apps/org/workgroup/cstf/download.php/28780/CTA-5001-B%20TxtOnly.docx)
-* [WAVE DASH-HLS Interop Specification – 2020 Edition, Skeleton Draft](https://standards.cta.tech/apps/org/workgroup/cstf/document.php?document_id=28924)
 
 ## Device Playback Task Force
 
 ### Published Specifications
-* [Device Playback Capabilities Specification (CTA-5003), Published December 2018 (pdf, public)](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5003-final.pdf)
-* [Device Playback Capabilities Specification (CTA-5003), Published December 2018 (Word, internal)](https://standards.cta.tech/apps/org/workgroup/dpctf/download.php/25037/CTA-5003.docx)
+* [Device Playback Capabilities Specification (CTA-5003-B), Published October 2024 (pdf, public)](https://www.cta.tech/standards/cta-5003-b/)
 
 ### Specification Development
-* [Draft Specification version 2](https://1drv.ms/w/s!AiNJEPgowJnWgf1djEI_m3uly6_1qQ)
-* [Github for comments against specification v2](https://github.com/cta-wave/device-playback-task-force)
-* [Draft Update: Content Options and Playback for AVC/AAC](https://1drv.ms/w/s!AiNJEPgowJnWgbpZesbLvglzCXVlSg?e=Rh7bg7)
+* [Github for comments against specification](https://github.com/cta-wave/device-playback-task-force)
 * Media Capabilities
   * [Draft Specification Update: Media Capabilities](https://1drv.ms/w/s!AiNJEPgowJnWgqIgG1edtm6I5qQTEQ?e=m2Tz9e)
   * [Media Capabilities Mapping](https://1drv.ms/w/s!AiNJEPgowJnWgpQn_duIoacMuDdrtA?e=Yhy4cU)
@@ -96,9 +78,10 @@ This page collects the CTA WAVE extended resources. Some of the documents are pu
   * [WMAS2023 Test Suite](https://webapitests2023.ctawave.org/)
 * [Open Source version (for porting to e.g., smart TVs)](https://github.com/cta-wave/WMAS)
 
-## HLS-DASH Interop Task Force
+## DASH-HLS Interoperability Group
 
 ### Published Specifications
+* [DASH-HLS Interoperability Specification (CTA-5005-B), Published January 2025 (pdf, public)](https://www.cta.tech/standards/cta-5005-b/)
 
 ### Specification Development
 * ISO/IEC 23009-1 
@@ -114,9 +97,6 @@ This page collects the CTA WAVE extended resources. Some of the documents are pu
 
 ### Specification Development
 * [Github issues](https://github.com/cta-wave/common-media-client-data/issues)
-
-### Test Resources
-None yet available
 
 
 ## CMAF Byte Stream Format Activity
