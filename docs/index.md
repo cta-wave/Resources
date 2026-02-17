@@ -10,7 +10,7 @@ This page collects the CTA WAVE extended resources. Some of the documents are pu
 * [Content Specification Task Force](#content-specification-task-force)
 * [Device Playback Task Force](#device-playback-task-force)
 * [HTML5 API Task Force](#html5-api-task-force)
-* [HLS-DASH Interop Task Force](#hls-dash-interop-task-force)
+* [DASH-HLS Interop Task Force](#hls-dash-interop-task-force)
 
 ## Content Specification Task Force
 
