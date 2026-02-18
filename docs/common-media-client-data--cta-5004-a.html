@@ -92,6 +92,7 @@ dd{margin-left:0}
 <title>Web Application Video Ecosystem - Common Media Client Data (CTA-5004-A)</title>
 <meta name="description" content="This document outlines a simple means by which every media player can communicate data with each media object request and have it received and processed consistently by every CDN.
         This is an approved and published CTA WAVE standard document. All CTA standards are available at CTA.tech/Standards.">
+<link rel="canonical" href="https://www.cta.tech/standards/cta-5004/">
 <style>
 var:hover{text-decoration:underline;cursor:pointer}
 var.respec-hl{color:var(--color,#000);background-color:var(--bg-color);box-shadow:0 0 0 2px var(--bg-color)}
@@ -119,6 +120,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 <script id="initialUserConfig" type="application/json">{
   "publishDate": "2026-02-11",
   "latestVersion": "https://www.cta.tech/standards/cta-5004/",
+  "canonicalURI": "https://www.cta.tech/standards/cta-5004/",
   "editors": [
     {
       "name": "Alexandra Blasgen",
@@ -193,7 +195,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 This document does not purport to address all safety problems associated with its use or all applicable regulatory requirements. It is the responsibility of the user of this document to establish appropriate safety and health practices and to determine the applicability of regulatory limitations before its use.<br><br>
 This document is copyrighted by the Consumer Technology Association (CTA)® and may not be reproduced, in whole or part, without written permission. Federal copyright law prohibits unauthorized reproduction of this document by any means. Organizations may obtain permission to reproduce a limited number of copies by entering into a license agreement. Requests to reproduce text, data, charts, figures or other material should be made to the Consumer Technology Association (CTA).<br><br>
 Published by ©CONSUMER TECHNOLOGY ASSOCIATION 2026 <br>Technology &amp; Standards Department <br><a href="https://www.cta.tech" target="_blank">www.CTA.tech</a><br><br>
-All rights reserved</p>
+All rights reserved<br><br>
+<i>This online copy of this specification is provided for informational use. The controlling version is hosted at the "Latest published version" link above. In case of any discrepancies between this version and the published version, the published version prevails.</i>
+</p>
     <hr title="Separator for header">
   </div>
 
@@ -220,7 +224,7 @@ All rights reserved</p>
 <p>While playing back content, Media player clients can convey information to trusted endpoints. These endpoints can be the Content Delivery Networks (CDNs) from which the players are requesting content, or they can be third-party data collection services. The information conveyed can be useful in log analysis, Quality of Service (QoS) monitoring, Quality of Experience (QoE) monitoring, ad reporting, and delivery optimization. Session identification allows thousands of individual reports to be interpreted as a single user session, leading to a clearer picture of end-user experience. Bitrate, buffer, and segment signaling allow CDNs to fine-tune and optimize their midgress traffic by intelligently reacting to the time constraints implicit in each request. Prefetch hints allow CDNs to have content ready at the edge ahead of the player request, improving delivery performance. Buffer starvation flags allow performance problems across a multi-CDN delivery surface to be identified in real-time. Event-based reporting allows players to dispatch data when triggered by certain events, such as play state or content changes, user actions, errors, ad boundaries, received segments or a heartbeat time interval. In combination, this transferred data should improve the overall quality of experience enjoyed by consumers.</p>
 <p>The key words "<em class="rfc2119">MUST</em>", "<em class="rfc2119">MUST NOT</em>", "<em class="rfc2119">REQUIRED</em>", "<em class="rfc2119">SHALL</em>", "<em class="rfc2119">SHALL NOT</em>", "<em class="rfc2119">SHOULD</em>", "<em class="rfc2119">SHOULD NOT</em>", "<em class="rfc2119">RECOMMENDED</em>", "<em class="rfc2119">NOT RECOMMENDED</em>", "<em class="rfc2119">MAY</em>", and "<em class="rfc2119">OPTIONAL</em>" in this document are to be interpreted as described in RFC 2119 [1].</p>
 <p>This document outlines a means by which every media player can communicate structured data and have it processed consistently by CDNs and third-party data collection services.</p>
-<p>This document defines the second version the specification.</p>
+<p>This document defines the second version of the specification.</p>
 </section><section id="reporting-modes-when-we-send-data"><div class="header-wrapper"><h2 id="x2-reporting-modes-when-we-send-data"><bdi class="secno">2. </bdi>Reporting Modes (When We Send Data)</h2><a class="self-link" href="#reporting-modes-when-we-send-data" aria-label="Permalink for Section 2."></a></div>
 <p>Common Media Client Data (CMCD) data supports two reporting modes named Request Mode and Event Mode. These modes differ in the target of the data as well as the trigger. Request Mode <em class="rfc2119">MUST</em> be supported by every CMCD player. Event Mode is optional for player support. A player may report data using any combination of modes. The decision as to which reporting modes to use and which keys to use within those reporting modes is application-defined.</p>
 <section id="request-mode"><div class="header-wrapper"><h3 id="x2-1-request-mode"><bdi class="secno">2.1 </bdi>Request mode</h3><a class="self-link" href="#request-mode" aria-label="Permalink for Section 2.1"></a></div>
@@ -244,22 +248,22 @@ All rights reserved</p>
 <p>A player <em class="rfc2119">MUST NOT</em> send a value for an optional CMCD parameter if its value is unknown or undefined. Instead, the key <em class="rfc2119">MUST</em> be omitted entirely from the data transmission.</p>
 <section id="header-field-definition"><div class="header-wrapper"><h3 id="x3-1-header-field-definition"><bdi class="secno">3.1 </bdi>Header field definition</h3><a class="self-link" href="#header-field-definition" aria-label="Permalink for Section 3.1"></a></div>
 <p>Four headers are defined to transmit the data. The payload key/value pairs are sharded over these headers based upon their expected level of entropy, in order to assist with HPACK/QPACK [2][19] header compression. The headers begin with the prefix "CMCD-" and have the following case-insensitive names:</p>
-<p>CMCD-Request</p>
-<p>CMCD-Object</p>
-<p>CMCD-Status</p>
-<p>CMCD-Session</p>
+<p><code>CMCD-Request</code></p>
+<p><code>CMCD-Object</code></p>
+<p><code>CMCD-Status</code></p>
+<p><code>CMCD-Session</code></p>
 <p>Note: Usage of a custom header from a web browser user-agent will trigger a preflight OPTIONS request before each unique media object request. This will lead to an increased request rate against the server. As a result, for CMCD transmissions from web browser user-agents that require CORS-preflighting per URL, the preferred mode of use is query arguments or for event-based reporting only - batch objects.</p>
 </section><section id="query-argument-definition"><div class="header-wrapper"><h3 id="x3-2-query-argument-definition"><bdi class="secno">3.2 </bdi>Query argument definition</h3><a class="self-link" href="#query-argument-definition" aria-label="Permalink for Section 3.2"></a></div>
 <p>The query argument is case-sensitive and capitalization <em class="rfc2119">MUST</em> be used.</p>
-<p>CMCD=&lt;URL_encoded_concatenation_of_key_value_pairs&gt;&lt;reserved_character&gt;</p>
+<p><code>CMCD=&lt;URL_encoded_concatenation_of_key_value_pairs&gt;&lt;reserved_character&gt;</code></p>
 <p>The reserved character is defined by RFC 3986 [3]. This reserved character is optional at the end of the URL.</p>
 <p>If the request already bears a query string, then an ampersand Unicode 0x26 character should precede the CMCD field.</p>
 </section><section id="body-definition"><div class="header-wrapper"><h3 id="x3-3-body-definition"><bdi class="secno">3.3 </bdi>Body definition</h3><a class="self-link" href="#body-definition" aria-label="Permalink for Section 3.3"></a></div>
-<p>&lt;string&gt;(\n&lt;string&gt;)*</p>
+<p><code>&lt;string&gt;(\n&lt;string&gt;)*</code></p>
 <p>A body object is constructed by concatenating one or more CMCD records separated by a single Line Feed (LF) character (Unicode 0x0A). Each record is constructed by concatenating query argument values according to the rules of section 3.2 with the exception that the string is not URL encoded. The encoding <em class="rfc2119">MUST</em> be UTF-8 [18]. Trailing and leading spaces on each line <em class="rfc2119">MUST</em> be ignored by the receiver. If the body contains only a single record, then a trailing single Line Feed (LF) character <em class="rfc2119">MUST NOT</em> be present.</p>
 <p>Body payloads <em class="rfc2119">MUST</em> be transmitted using an HTTP POST request in which the body object forms the body of the request. The content-type <em class="rfc2119">MUST</em> be "text/cmcd".</p>
 <p>Example (where \n is used indicate the Line Feed [LF] character):</p>
-<p>bl=11200,br=67,d=4011,dl=11200,mtp=42900,nor="bbb_a64k_5.m4a",ot=a,rtp=200,sf=d,sid="31b090a2-def1-44f9-87f8-4f8213c7bf63",st=v,tb=67\nbl=41400,br=67,d=4011,dl=41400,mtp=60100,nor="bbb_a64k_6.m4a",ot=a,rtp=100,sf=d,sid="e871f4ee-7945-4001-aae1-ca280f4717df",st=v,tb=67\nbl=53400,br=67,d=4011,dl=53400,mtp=64500,nor="bbb_a64k_7.m4a",ot=a,rtp=100,sf=d,sid="e871f4ee-7945-4001-aae1-ca280f4717df",st=v,tb=67</p>
+<p><code>bl=11200,br=67,d=4011,dl=11200,mtp=42900,nor="bbb_a64k_5.m4a",ot=a,rtp=200,sf=d,sid="31b090a2-def1-44f9-87f8-4f8213c7bf63",st=v,tb=67\nbl=41400,br=67,d=4011,dl=41400,mtp=60100,nor="bbb_a64k_6.m4a",ot=a,rtp=100,sf=d,sid="e871f4ee-7945-4001-aae1-ca280f4717df",st=v,tb=67\nbl=53400,br=67,d=4011,dl=53400,mtp=64500,nor="bbb_a64k_7.m4a",ot=a,rtp=100,sf=d,sid="e871f4ee-7945-4001-aae1-ca280f4717df",st=v,tb=67</code></p>
 </section></section><section id="data-payload-definition-what-data-to-send"><div class="header-wrapper"><h2 id="x4-data-payload-definition-what-data-to-send"><bdi class="secno">4. </bdi>Data Payload Definition (What Data to Send)</h2><a class="self-link" href="#data-payload-definition-what-data-to-send" aria-label="Permalink for Section 4."></a></div>
 <section id="payload-definition-for-headers-and-query-argument-transmission"><div class="header-wrapper"><h3 id="x4-1-payload-definition-for-headers-and-query-argument-transmission"><bdi class="secno">4.1 </bdi>Payload definition for Headers and Query Argument transmission</h3><a class="self-link" href="#payload-definition-for-headers-and-query-argument-transmission" aria-label="Permalink for Section 4.1"></a></div>
 <p>The data payload for Header and Query Argument transmission consists of a series of key/value pairs constructed according to the following rules:</p>
@@ -283,7 +287,7 @@ All rights reserved</p>
 <li>If the data payload is transmitted as a query argument, then the entire payload string <em class="rfc2119">MUST</em> be URLEncoded per [4]. Data payloads transmitted via headers <em class="rfc2119">MUST NOT</em> be URLEncoded.</li>
 <li>The data payload syntax <em class="rfc2119">MUST</em> be compliant with Structured Field Values for HTTP [5].</li>
 <li>Transport Layer Security <em class="rfc2119">SHOULD</em> be used to protect all transmission of CMCD data.</li>
-<li>Some keys allow different values per object type. To enable this we use inner lists with Object Type parameters. The parameter name matches an object type token and has a boolean value. An Inner List [5] is denoted by opening (Unicode 0x28) and closing (Unicode 0x29) parenthesis, with each internal element separated by a space (Unicode 0x20). The list syntax <em class="rfc2119">MUST</em> always be used even if only a single value is present. The allowed tokens are those defined as allowed values for the Object Type 'ot' key in Table 1. An example describing an encoded bitrate of 5mbps for video and 320kbps for audio would be br=(5000;v 320;a).</li>
+<li>Some keys allow different values per object type. To enable this we use inner lists with Object Type parameters. The parameter name matches an object type token and has a boolean value. An Inner List [5] is denoted by opening (Unicode 0x28) and closing (Unicode 0x29) parenthesis, with each internal element separated by a space (Unicode 0x20). The list syntax <em class="rfc2119">MUST</em> always be used even if only a single value is present. The allowed tokens are those defined as allowed values for the Object Type 'ot' key in Table 1. An example describing an encoded bitrate of 5mbps for video and 320kbps for audio would be <code>br=(5000;v 320;a)</code>.</li>
 </ol>
 </section><section id="payload-definition-for-batch-transmission"><div class="header-wrapper"><h3 id="x4-2-payload-definition-for-batch-transmission"><bdi class="secno">4.2 </bdi>Payload definition for batch transmission</h3><a class="self-link" href="#payload-definition-for-batch-transmission" aria-label="Permalink for Section 4.2"></a></div>
 <ol>
@@ -319,7 +323,7 @@ All rights reserved</p>
 <tbody>
 <tr>
 <td width="118">
-<p><strong>Aggregate encoded bitrate</strong></p>
+<div class="header-wrapper"><h3 id="aggregate-encoded-bitrate">Aggregate encoded bitrate</h3><a class="self-link" href="#aggregate-encoded-bitrate" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>ab</p>
@@ -340,7 +344,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Buffer length</strong></p>
+<div class="header-wrapper"><h3 id="buffer-length">Buffer length</h3><a class="self-link" href="#buffer-length" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>bl</p>
@@ -361,7 +365,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Backgrounded</strong></p>
+<div class="header-wrapper"><h3 id="backgrounded">Backgrounded</h3><a class="self-link" href="#backgrounded" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>bg</p>
@@ -382,7 +386,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Encoded bitrate</strong></p>
+<div class="header-wrapper"><h3 id="encoded-bitrate">Encoded bitrate</h3><a class="self-link" href="#encoded-bitrate" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>br</p>
@@ -403,7 +407,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Buffer starvation</strong></p>
+<div class="header-wrapper"><h3 id="buffer-starvation">Buffer starvation</h3><a class="self-link" href="#buffer-starvation" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>bs</p>
@@ -425,7 +429,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Buffer Starvation Absolute</strong></p>
+<div class="header-wrapper"><h3 id="buffer-starvation-absolute">Buffer Starvation Absolute</h3><a class="self-link" href="#buffer-starvation-absolute" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>bsa</p>
@@ -446,7 +450,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Buffer Starvation duration</strong></p>
+<div class="header-wrapper"><h3 id="buffer-starvation-duration">Buffer Starvation duration</h3><a class="self-link" href="#buffer-starvation-duration" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>bsd</p>
@@ -467,7 +471,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Buffer Starvation Duration Absolute</strong></p>
+<div class="header-wrapper"><h3 id="buffer-starvation-duration-absolute">Buffer Starvation Duration Absolute</h3><a class="self-link" href="#buffer-starvation-duration-absolute" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>bsda</p>
@@ -488,7 +492,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Custom Event Name</strong></p>
+<div class="header-wrapper"><h3 id="custom-event-name">Custom Event Name</h3><a class="self-link" href="#custom-event-name" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>cen</p>
@@ -508,7 +512,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Content ID</strong></p>
+<div class="header-wrapper"><h3 id="content-id">Content ID</h3><a class="self-link" href="#content-id" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>cid</p>
@@ -529,7 +533,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>CMSD Dynamic Header</strong></p>
+<div class="header-wrapper"><h3 id="cmsd-dynamic-header">CMSD Dynamic Header</h3><a class="self-link" href="#cmsd-dynamic-header" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>cmsdd</p>
@@ -549,7 +553,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>CMSD Static Header</strong></p>
+<div class="header-wrapper"><h3 id="cmsd-static-header">CMSD Static Header</h3><a class="self-link" href="#cmsd-static-header" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>cmsds</p>
@@ -569,7 +573,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Content Signature</strong></p>
+<div class="header-wrapper"><h3 id="content-signature">Content Signature</h3><a class="self-link" href="#content-signature" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>cs</p>
@@ -590,7 +594,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Object duration</strong></p>
+<div class="header-wrapper"><h3 id="object-duration">Object duration</h3><a class="self-link" href="#object-duration" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>d</p>
@@ -611,7 +615,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Dropped Frames Absolute</strong></p>
+<div class="header-wrapper"><h3 id="dropped-frames-absolute">Dropped Frames Absolute</h3><a class="self-link" href="#dropped-frames-absolute" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>dfa</p>
@@ -632,7 +636,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Deadline</strong></p>
+<div class="header-wrapper"><h3 id="deadline">Deadline</h3><a class="self-link" href="#deadline" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>dl</p>
@@ -653,7 +657,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Event</strong></p>
+<div class="header-wrapper"><h3 id="event">Event</h3><a class="self-link" href="#event" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>e</p>
@@ -662,7 +666,7 @@ All rights reserved</p>
 <p>N.A</p>
 </td>
 <td width="96">
-<p>Token - one of [abs,abe,ae,as,b,bc,c,ce,e,h,m,pc,pe,ps,rr,sk,t,um]</p>
+<p>Token - one of [ abs, abe, ae, as, b, bc, c, ce, e, h, m, pc, pe, ps, rr, sk, t, um ]</p>
 </td>
 <td width="269">
 <p>This key <em class="rfc2119">MUST</em> only be used in Event mode and <em class="rfc2119">MUST</em> be present on all reports. The minimum recommended set of supported events are: <code>ps</code>, <code>e</code>, <code>t</code>, and <code>rr</code>.</p>
@@ -692,7 +696,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Player Error Code</strong></p>
+<div class="header-wrapper"><h3 id="player-error-code">Player Error Code</h3><a class="self-link" href="#player-error-code" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>ec</p>
@@ -715,7 +719,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Hostname</strong></p>
+<div class="header-wrapper"><h3 id="hostname">Hostname</h3><a class="self-link" href="#hostname" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>h</p>
@@ -735,7 +739,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Lowest aggregated encoded bitrate</strong></p>
+<div class="header-wrapper"><h3 id="lowest-aggregated-encoded-bitrate">Lowest aggregated encoded bitrate</h3><a class="self-link" href="#lowest-aggregated-encoded-bitrate" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>lab</p>
@@ -756,7 +760,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Lowest encoded bitrate</strong></p>
+<div class="header-wrapper"><h3 id="lowest-encoded-bitrate">Lowest encoded bitrate</h3><a class="self-link" href="#lowest-encoded-bitrate" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>lb</p>
@@ -777,7 +781,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Live stream latency</strong></p>
+<div class="header-wrapper"><h3 id="live-stream-latency">Live stream latency</h3><a class="self-link" href="#live-stream-latency" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>ltc</p>
@@ -798,7 +802,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Media Start Delay</strong></p>
+<div class="header-wrapper"><h3 id="media-start-delay">Media Start Delay</h3><a class="self-link" href="#media-start-delay" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>msd</p>
@@ -821,7 +825,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Measured throughput</strong></p>
+<div class="header-wrapper"><h3 id="measured-throughput">Measured throughput</h3><a class="self-link" href="#measured-throughput" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>mtp</p>
@@ -842,7 +846,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Next object request</strong></p>
+<div class="header-wrapper"><h3 id="next-object-request">Next object request</h3><a class="self-link" href="#next-object-request" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>nor</p>
@@ -867,7 +871,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Non rendered</strong></p>
+<div class="header-wrapper"><h3 id="non-rendered">Non rendered</h3><a class="self-link" href="#non-rendered" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>nr</p>
@@ -888,7 +892,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Object type</strong></p>
+<div class="header-wrapper"><h3 id="object-type">Object type</h3><a class="self-link" href="#object-type" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>ot</p>
@@ -897,7 +901,7 @@ All rights reserved</p>
 <p>CMCD-Object</p>
 </td>
 <td width="96">
-<p>Token - one of [m,a,v,av,i,c, tt,k,o]</p>
+<p>Token - one of [ m, a, v, av, i, c, tt, k, o ]</p>
 </td>
 <td width="269">
 <p>The media type of the current object being requested:</p>
@@ -920,7 +924,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Playhead bitrate</strong></p>
+<div class="header-wrapper"><h3 id="playhead-bitrate">Playhead bitrate</h3><a class="self-link" href="#playhead-bitrate" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>pb</p>
@@ -941,7 +945,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Playback rate</strong></p>
+<div class="header-wrapper"><h3 id="playback-rate">Playback rate</h3><a class="self-link" href="#playback-rate" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>pr</p>
@@ -962,7 +966,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Playhead time</strong></p>
+<div class="header-wrapper"><h3 id="playhead-time">Playhead time</h3><a class="self-link" href="#playhead-time" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>pt</p>
@@ -984,7 +988,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Response code</strong></p>
+<div class="header-wrapper"><h3 id="response-code">Response code</h3><a class="self-link" href="#response-code" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>rc</p>
@@ -1005,7 +1009,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Requested maximum throughput</strong></p>
+<div class="header-wrapper"><h3 id="requested-maximum-throughput">Requested maximum throughput</h3><a class="self-link" href="#requested-maximum-throughput" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>rtp</p>
@@ -1027,7 +1031,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Streaming format</strong></p>
+<div class="header-wrapper"><h3 id="streaming-format">Streaming format</h3><a class="self-link" href="#streaming-format" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>sf</p>
@@ -1036,7 +1040,7 @@ All rights reserved</p>
 <p>CMCD-Session</p>
 </td>
 <td width="96">
-<p>Token - one of [d,h,e,s,o]</p>
+<p>Token - one of [ d, h, e, s, o ]</p>
 </td>
 <td width="269">
 <p>The streaming format that defines the current request.</p>
@@ -1053,7 +1057,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Session ID</strong></p>
+<div class="header-wrapper"><h3 id="session-id">Session ID</h3><a class="self-link" href="#session-id" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>sid</p>
@@ -1074,7 +1078,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>SMRT-Data Header</strong></p>
+<div class="header-wrapper"><h3 id="smrt-data-header">SMRT-Data Header</h3><a class="self-link" href="#smrt-data-header" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>smrt</p>
@@ -1094,7 +1098,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Sequence Number</strong></p>
+<div class="header-wrapper"><h3 id="sequence-number">Sequence Number</h3><a class="self-link" href="#sequence-number" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>sn</p>
@@ -1115,7 +1119,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Stream type</strong></p>
+<div class="header-wrapper"><h3 id="stream-type">Stream type</h3><a class="self-link" href="#stream-type" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>st</p>
@@ -1124,7 +1128,7 @@ All rights reserved</p>
 <p>CMCD-Session</p>
 </td>
 <td width="96">
-<p>Token - one of [v,l,ll]</p>
+<p>Token - one of [ v, l, ll ]</p>
 </td>
 <td width="269">
 <p>v = all segments are available – e.g., VOD</p>
@@ -1138,7 +1142,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>State</strong></p>
+<div class="header-wrapper"><h3 id="state">State</h3><a class="self-link" href="#state" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>sta</p>
@@ -1147,7 +1151,7 @@ All rights reserved</p>
 <p>CMCD-Request</p>
 </td>
 <td width="96">
-<p>Token - one of [s,p,k,r,a,w,e,f,q,d ]</p>
+<p>Token - one of [ s, p, k, r, a, w, e, f, q, d ]</p>
 </td>
 <td width="269">
 <p>A token describing the current playback state of the player as perceived by the end user, one of:</p>
@@ -1169,7 +1173,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Startup</strong></p>
+<div class="header-wrapper"><h3 id="startup">Startup</h3><a class="self-link" href="#startup" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>su</p>
@@ -1191,7 +1195,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Top aggregated encoded bitrate</strong></p>
+<div class="header-wrapper"><h3 id="top-aggregated-encoded-bitrate">Top aggregated encoded bitrate</h3><a class="self-link" href="#top-aggregated-encoded-bitrate" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>tab</p>
@@ -1212,7 +1216,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Top encoded bitrate</strong></p>
+<div class="header-wrapper"><h3 id="top-encoded-bitrate">Top encoded bitrate</h3><a class="self-link" href="#top-encoded-bitrate" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>tb</p>
@@ -1233,7 +1237,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Target Buffer length</strong></p>
+<div class="header-wrapper"><h3 id="target-buffer-length">Target Buffer length</h3><a class="self-link" href="#target-buffer-length" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>tbl</p>
@@ -1254,7 +1258,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Top playable bitrate</strong></p>
+<div class="header-wrapper"><h3 id="top-playable-bitrate">Top playable bitrate</h3><a class="self-link" href="#top-playable-bitrate" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>tpb</p>
@@ -1277,7 +1281,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Timestamp</strong></p>
+<div class="header-wrapper"><h3 id="timestamp">Timestamp</h3><a class="self-link" href="#timestamp" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>ts</p>
@@ -1298,7 +1302,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Time to first byte</strong></p>
+<div class="header-wrapper"><h3 id="time-to-first-byte">Time to first byte</h3><a class="self-link" href="#time-to-first-byte" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>ttfb</p>
@@ -1318,7 +1322,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Time to first body byte</strong></p>
+<div class="header-wrapper"><h3 id="time-to-first-body-byte">Time to first body byte</h3><a class="self-link" href="#time-to-first-body-byte" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>ttfbb</p>
@@ -1338,7 +1342,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Time to last byte</strong></p>
+<div class="header-wrapper"><h3 id="time-to-last-byte">Time to last byte</h3><a class="self-link" href="#time-to-last-byte" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>ttlb</p>
@@ -1358,7 +1362,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Request URL</strong></p>
+<div class="header-wrapper"><h3 id="request-url">Request URL</h3><a class="self-link" href="#request-url" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>url</p>
@@ -1378,7 +1382,7 @@ All rights reserved</p>
 </tr>
 <tr>
 <td width="118">
-<p><strong>Version</strong></p>
+<div class="header-wrapper"><h3 id="version">Version</h3><a class="self-link" href="#version" aria-label="Permalink for this Section"></a></div>
 </td>
 <td width="57">
 <p>v</p>
@@ -1480,206 +1484,222 @@ All rights reserved</p>
 <p>These examples illustrate valid data combinations across the various delivery modes. In many examples, the same information is repeated three times: as raw keys, as Query-args and as Headers.</p>
 <section id="request-mode-0"><div class="header-wrapper"><h3 id="x8-1-request-mode"><bdi class="secno">8.1 </bdi>Request mode</h3><a class="self-link" href="#request-mode-0" aria-label="Permalink for Section 8.1"></a></div>
 <section id="standard-video-segment-request"><div class="header-wrapper"><h4 id="x8-1-1-standard-video-segment-request"><bdi class="secno">8.1.1 </bdi>Standard video segment request</h4><a class="self-link" href="#standard-video-segment-request" aria-label="Permalink for Section 8.1.1"></a></div>
-<p>Raw keys:</p>
-<p>bl=(2000),br=(3000;v),cid="content-id-123",d=4000,dl=1000,mtp=(15000),nor=("next-seg.mp4"),ot=v,rtp=12000,sf=d,sid="session-id-123",st=v,sta=p,tb=(6000;v),v=2</p>
-<p>Query-arg:</p>
-<p>CMCD=bl%3D%282000%29%2Cbr%3D%283000%3Bv%29%2Ccid%3D%22content-id-123%22%2Cd%3D4000%2Cdl%3D1000%2Cmtp%3D%2815000%29%2Cnor%3D%28%22next-seg.mp4%22%29%2Cot%3Dv%2Crtp%3D12000%2Csf%3Dd%2Csid%3D%22session-id-123%22%2Cst%3Dv%2Csta%3Dp%2Ctb%3D%286000%3Bv%29%2Cv%3D2</p>
-<p>Headers:</p>
+<p>Raw keys:</p><code>
+<p>bl=(2000),br=(3000;v),cid="content-id-123",d=4000,dl=1000,mtp=(15000),nor=("next-seg.mp4"),ot=v,rtp=12000,sf=d,sid="session-id-123",st=v,sta=p,tb=(6000;v),v=2</p></code>
+<p>Query-arg:</p><code>
+<p>CMCD=bl%3D%282000%29%2Cbr%3D%283000%3Bv%29%2Ccid%3D%22content-id-123%22%2Cd%3D4000%2Cdl%3D1000%2Cmtp%3D%2815000%29%2Cnor%3D%28%22next-seg.mp4%22%29%2Cot%3Dv%2Crtp%3D12000%2Csf%3Dd%2Csid%3D%22session-id-123%22%2Cst%3Dv%2Csta%3Dp%2Ctb%3D%286000%3Bv%29%2Cv%3D2</p></code>
+<p>Headers:</p><code>
 <p>CMCD-Request: bl=(2000),dl=1000,mtp=(15000),nor=("next-seg.mp4"),sta=p</p>
 <p>CMCD-Object: br=(3000;v),d=4000,ot=v,tb=(6000;v)</p>
 <p>CMCD-Status: rtp=12000</p>
-<p>CMCD-Session: cid="content-id-123",sf=d,sid="session-id-123",st=v,v=2</p>
+<p>CMCD-Session: cid="content-id-123",sf=d,sid="session-id-123",st=v,v=2</p></code>
 </section><section id="standard-audio-segment-request"><div class="header-wrapper"><h4 id="x8-1-2-standard-audio-segment-request"><bdi class="secno">8.1.2 </bdi>Standard audio segment request</h4><a class="self-link" href="#standard-audio-segment-request" aria-label="Permalink for Section 8.1.2"></a></div>
-<p>Raw keys:</p>
-<p>bl=(2000),br=(320),cid="content-id-123",d=2000,mtp=(15000),ot=a,sid="session-id-123",st=v,v=2</p>
-<p>Query-arg:</p>
-<p>CMCD=bl%3D%282000%29%2Cbr%3D%28320%29%2Ccid%3D%22content-id-123%22%2Cd%3D2000%2Cmtp%3D%2815000%29%2Cot%3Da%2Csid%3D%22session-id-123%22%2Cst%3Dv%2Cv%3D2</p>
-<p>Headers:</p>
+<p>Raw keys:</p><code>
+<p>bl=(2000),br=(320),cid="content-id-123",d=2000,mtp=(15000),ot=a,sid="session-id-123",st=v,v=2</p></code>
+<p>Query-arg:</p><code>
+<p>CMCD=bl%3D%282000%29%2Cbr%3D%28320%29%2Ccid%3D%22content-id-123%22%2Cd%3D2000%2Cmtp%3D%2815000%29%2Cot%3Da%2Csid%3D%22session-id-123%22%2Cst%3Dv%2Cv%3D2</p></code>
+<p>Headers:</p><code>
 <p>CMCD-Request: bl=(2000),mtp=(15000)</p>
 <p>CMCD-Object: br=(320),d=2000,ot=a</p>
-<p>CMCD-Session: cid="content-id-123",sid="session-id-123",st=v,v=2</p>
+<p>CMCD-Session: cid="content-id-123",sid="session-id-123",st=v,v=2</p></code>
 </section><section id="standard-request-showing-minimal-fields"><div class="header-wrapper"><h4 id="x8-1-3-standard-request-showing-minimal-fields"><bdi class="secno">8.1.3 </bdi>Standard request showing minimal fields</h4><a class="self-link" href="#standard-request-showing-minimal-fields" aria-label="Permalink for Section 8.1.3"></a></div>
-<p>Raw keys:</p>
-<p>cid="content-id-123",sid="session-id-123",v=2</p>
-<p>Query-arg:</p>
-<p>CMCD=cid%3D%22content-id-123%22%2Csid%3D%22session-id-123%22%2Cv%3D2</p>
-<p>Headers:</p>
-<p>CMCD-Session: cid="content-id-123",sid="session-id-123",v=2</p>
+<p>Raw keys:</p><code>
+<p>cid="content-id-123",sid="session-id-123",v=2</p></code>
+<p>Query-arg:</p><code>
+<p>CMCD=cid%3D%22content-id-123%22%2Csid%3D%22session-id-123%22%2Cv%3D2</p></code>
+<p>Headers:</p><code>
+<p>CMCD-Session: cid="content-id-123",sid="session-id-123",v=2</p></code>
 </section><section id="standard-sequence-of-events-in-happy-day-start-up-scenario"><div class="header-wrapper"><h4 id="x8-1-4-standard-sequence-of-events-in-happy-day-start-up-scenario"><bdi class="secno">8.1.4 </bdi>Standard sequence of events in happy day start-up scenario</h4><a class="self-link" href="#standard-sequence-of-events-in-happy-day-start-up-scenario" aria-label="Permalink for Section 8.1.4"></a></div>
 <p>Request 1: Manifest/Playlist fetch (Startup)</p>
-<p>Raw keys:</p>
-<p>cid="content-id-123",ot=m,sf=d,sid="session-id-123",st=v,su,v=2</p>
-<p>Query-arg: CMCD=cid%3D%22content-id-123%22%2Cot%3Dm%2Csf%3Dd%2Csid%3D%22session-id-123%22%2Cst%3Dv%2Csu%2Cv%3D2</p>
-<p>Headers:</p>
+<p>Raw keys:</p><code>
+<p>cid="content-id-123",ot=m,sf=d,sid="session-id-123",st=v,su,v=2</p></code>
+<p>Query-arg:</p><code>
+<p>CMCD=cid%3D%22content-id-123%22%2Cot%3Dm%2Csf%3Dd%2Csid%3D%22session-id-123%22%2Cst%3Dv%2Csu%2Cv%3D2</p></code>
+<p>Headers:</p><code>
 <p>CMCD-Request: su</p>
 <p>CMCD-Object: ot=m</p>
-<p>CMCD-Session: cid="content-id-123",sf=d,sid="session-id-123",st=v,v=2</p>
+<p>CMCD-Session: cid="content-id-123",sf=d,sid="session-id-123",st=v,v=2</p></code>
 <p>Request 2: Init Segment (Startup)</p>
 <p>Fetching the initialization segment. 'nor' requests the first two media segments.</p>
-<p>Raw keys:</p>
-<p>bl=(0),br=(3000;v),cid="content-id-123",mtp=(15000),nor=("seg-1.m4v" "seg-2.m4v"),ot=i,sid="session-id-123",st=v,sta=s,su,v=2</p>
-<p>Query-arg: CMCD=bl%3D%280%29%2Cbr%3D%283000%3Bv%29%2Ccid%3D%22content-id-123%22%2Cmtp%3D%2815000%29%2Cnor%3D%28%22seg-1.m4v%22%20%22seg-2.m4v%22%29%2Cot%3Di%2Csid%3D%22session-id-123%22%2Cst%3Dv%2Csta%3Ds%2Csu%2Cv%3D2</p>
-<p>Headers:</p>
+<p>Raw keys:</p><code>
+<p>bl=(0),br=(3000;v),cid="content-id-123",mtp=(15000),nor=("seg-1.m4v" "seg-2.m4v"),ot=i,sid="session-id-123",st=v,sta=s,su,v=2</p></code>
+<p>Query-arg:</p><code>
+<p>CMCD=bl%3D%280%29%2Cbr%3D%283000%3Bv%29%2Ccid%3D%22content-id-123%22%2Cmtp%3D%2815000%29%2Cnor%3D%28%22seg-1.m4v%22%20%22seg-2.m4v%22%29%2Cot%3Di%2Csid%3D%22session-id-123%22%2Cst%3Dv%2Csta%3Ds%2Csu%2Cv%3D2</p></code>
+<p>Headers:</p><code>
 <p>CMCD-Request: bl=(0),mtp=(15000),nor=("seg-1.m4v" "seg-2.m4v"),sta=s,su</p>
 <p>CMCD-Object: br=(3000;v),ot=i</p>
-<p>CMCD-Session: cid="content-id-123",sid="session-id-123",st=v,v=2</p>
+<p>CMCD-Session: cid="content-id-123",sid="session-id-123",st=v,v=2</p></code>
 <p>Request 3: First Segment (Starting/Buffering)</p>
 <p>Fetching the first media segment. nor requests the next two segments.</p>
-<p>Raw keys: bl=(0),br=(3000;v),cid="content-id-123",d=4000,mtp=(15000),nor=("seg-2.m4v" "seg-3.m4v"),ot=v,sid="session-id-123",st=v,sta=s,su,v=2</p>
-<p>Query-arg: CMCD=bl%3D%280%29%2Cbr%3D%283000%3Bv%29%2Ccid%3D%22content-id-123%22%2Cd%3D4000%2Cmtp%3D%2815000%29%2Cnor%3D%28%22seg-2.m4v%22%20%22seg-3.m4v%22%29%2Cot%3Dv%2Csid%3D%22session-id-123%22%2Cst%3Dv%2Csta%3Ds%2Csu%2Cv%3D2</p>
-<p>Headers:</p>
+<p>Raw keys:</p><code>
+<p>bl=(0),br=(3000;v),cid="content-id-123",d=4000,mtp=(15000),nor=("seg-2.m4v" "seg-3.m4v"),ot=v,sid="session-id-123",st=v,sta=s,su,v=2</p></code>
+<p>Query-arg:</p><code>
+<p>CMCD=bl%3D%280%29%2Cbr%3D%283000%3Bv%29%2Ccid%3D%22content-id-123%22%2Cd%3D4000%2Cmtp%3D%2815000%29%2Cnor%3D%28%22seg-2.m4v%22%20%22seg-3.m4v%22%29%2Cot%3Dv%2Csid%3D%22session-id-123%22%2Cst%3Dv%2Csta%3Ds%2Csu%2Cv%3D2</p></code>
+<p>Headers:</p><code>
 <p>CMCD-Request: bl=(0),mtp=(15000),nor=("seg-2.m4v" "seg-3.m4v"),sta=s,su</p>
 <p>CMCD-Object: br=(3000;v),d=4000,ot=v</p>
-<p>CMCD-Session: cid="content-id-123",sid="session-id-123",st=v,v=2</p>
+<p>CMCD-Session: cid="content-id-123",sid="session-id-123",st=v,v=2</p></code>
 <p>Request 4: Second Segment (Playing)</p>
 <p>Fetching the second media segment. The player enters the playing state. 'nor' requests the next two segments (3 and 4). The startup time msd is reported.</p>
-<p>Raw keys: bl=(4000),br=(3000;v),cid="content-id-123",d=4000,msd=200,mtp=(15000),nor=("seg-3.m4v" "seg-4.m4v"),ot=v,sid="session-id-123",st=v,sta=p,v=2</p>
-<p>Query-arg: CMCD=bl%3D%284000%29%2Cbr%3D%283000%3Bv%29%2Ccid%3D%22content-id-123%22%2Cd%3D4000%2Cmsd%3D200%2Cmtp%3D%2815000%29%2Cnor%3D%28%22seg-3.m4v%22%20%22seg-4.m4v%22%29%2Cot%3Dv%2Csid%3D%22session-id-123%22%2Cst%3Dv%2Csta%3Dp%2Cv%3D2</p>
-<p>Headers:</p>
+<p>Raw keys:</p><code>
+<p>bl=(4000),br=(3000;v),cid="content-id-123",d=4000,msd=200,mtp=(15000),nor=("seg-3.m4v" "seg-4.m4v"),ot=v,sid="session-id-123",st=v,sta=p,v=2</p></code>
+<p>Query-arg:</p><code>
+<p>CMCD=bl%3D%284000%29%2Cbr%3D%283000%3Bv%29%2Ccid%3D%22content-id-123%22%2Cd%3D4000%2Cmsd%3D200%2Cmtp%3D%2815000%29%2Cnor%3D%28%22seg-3.m4v%22%20%22seg-4.m4v%22%29%2Cot%3Dv%2Csid%3D%22session-id-123%22%2Cst%3Dv%2Csta%3Dp%2Cv%3D2</p></code>
+<p>Headers:</p><code>
 <p>CMCD-Request: bl=(4000),mtp=(15000),nor=("seg-3.m4v" "seg-4.m4v"),sta=p</p>
 <p>CMCD-Object: br=(3000;v),d=4000,ot=v</p>
-<p>CMCD-Session: cid="content-id-123",msd=200,sid="session-id-123",st=v,v=2</p>
+<p>CMCD-Session: cid="content-id-123",msd=200,sid="session-id-123",st=v,v=2</p></code>
 </section><section id="error-scenario"><div class="header-wrapper"><h4 id="x8-1-5-error-scenario"><bdi class="secno">8.1.5 </bdi>Error scenario</h4><a class="self-link" href="#error-scenario" aria-label="Permalink for Section 8.1.5"></a></div>
 <p>Non-fatal error (recoverable).</p>
 <p>Codec is not supported, but the player continues playing (sta=p).</p>
-<p>Raw keys: cid="content-id-123",ec=("CODEC_NOT_SUPPORTED"),sid="session-id-123",sta=p,v=2</p>
-<p>Query-arg: CMCD=cid%3D%22content-id-123%22%2Cec%3D%28%22CODEC_NOT_SUPPORTED%22%29%2Csid%3D%22session-id-123%22%2Csta%3Dp%2Cv%3D2</p>
-<p>Headers:</p>
+<p>Raw keys:</p><code>
+<p>cid="content-id-123",ec=("CODEC_NOT_SUPPORTED"),sid="session-id-123",sta=p,v=2</p></code>
+<p>Query-arg:</p><code>
+<p>CMCD=cid%3D%22content-id-123%22%2Cec%3D%28%22CODEC_NOT_SUPPORTED%22%29%2Csid%3D%22session-id-123%22%2Csta%3Dp%2Cv%3D2</p></code>
+<p>Headers:</p><code>
 <p>CMCD-Request: sta=p</p>
 <p>CMCD-Status: ec=("CODEC_NOT_SUPPORTED")</p>
-<p>CMCD-Session: cid="content-id-123",sid="session-id-123",v=2</p>
+<p>CMCD-Session: cid="content-id-123",sid="session-id-123",v=2</p></code>
 <p>Fatal error.</p>
 <p>Playback failed, player enters fatal error state (sta=f).</p>
-<p>Raw keys: cid="content-id-123",ec=("DRM_NOT_SUPPORTED" "PLAYBACK_FAILED"),sid="session-id-123",sta=f,v=2</p>
-<p>Query-arg: CMCD=cid%3D%22content-id-123%22%2Cec%3D%28%22DRM_NOT_SUPPORTED%22%20%22PLAYBACK_FAILED%22%29%2Csid%3D%22session-id-123%22%2Csta%3Df%2Cv%3D2</p>
-<p>Headers:</p>
+<p>Raw keys:</p><code>
+<p>cid="content-id-123",ec=("DRM_NOT_SUPPORTED" "PLAYBACK_FAILED"),sid="session-id-123",sta=f,v=2</p></code>
+<p>Query-arg:</p><code>
+<p>CMCD=cid%3D%22content-id-123%22%2Cec%3D%28%22DRM_NOT_SUPPORTED%22%20%22PLAYBACK_FAILED%22%29%2Csid%3D%22session-id-123%22%2Csta%3Df%2Cv%3D2</p></code>
+<p>Headers:</p><code>
 <p>CMCD-Request: sta=f</p>
 <p>CMCD-Status: ec=("DRM_NOT_SUPPORTED" "PLAYBACK_FAILED")</p>
-<p>CMCD-Session: cid="content-id-123",sid="session-id-123",v=2</p>
+<p>CMCD-Session: cid="content-id-123",sid="session-id-123",v=2</p></code>
 </section><section id="rebuffering-example"><div class="header-wrapper"><h4 id="x8-1-6-rebuffering-example"><bdi class="secno">8.1.6 </bdi>Rebuffering example</h4><a class="self-link" href="#rebuffering-example" aria-label="Permalink for Section 8.1.6"></a></div>
 <p>Minimal Information, requesting video (ot=v) with zero buffer.</p>
-<p>Raw keys:</p>
-<p>bl=(0),bs,cid="content-id-123",ot=v,sid="session-id-123",sta=r,v=2</p>
-<p>Query-arg: CMCD=bl%3D%280%29%2Cbs%2Ccid%3D%22content-id-123%22%2Cot%3Dv%2Csid%3D%22session-id-123%22%2Csta%3Dr%2Cv%3D2</p>
-<p>Headers:</p>
+<p>Raw keys:</p><code>
+<p>bl=(0),bs,cid="content-id-123",ot=v,sid="session-id-123",sta=r,v=2</p></code>
+<p>Query-arg:</p><code>
+<p>CMCD=bl%3D%280%29%2Cbs%2Ccid%3D%22content-id-123%22%2Cot%3Dv%2Csid%3D%22session-id-123%22%2Csta%3Dr%2Cv%3D2</p></code>
+<p>Headers:</p><code>
 <p>CMCD-Request: bl=(0),sta=r</p>
 <p>CMCD-Object: ot=v</p>
 <p>CMCD-Status: bs</p>
-<p>CMCD-Session: cid="content-id-123",sid="session-id-123",v=2</p>
+<p>CMCD-Session: cid="content-id-123",sid="session-id-123",v=2</p></code>
 <p>Similar request, but with more detailed Information.</p>
 <p>Requesting video (ot=v). Buffer shows video is empty (0;v), but audio has buffer (2000;a).</p>
-<p>Raw keys:</p>
-<p>bl=(0;v 2000;a),bs,cid="content-id-123",ot=v,sid="session-id-123",sta=r,v=2</p>
-<p>Query-arg: CMCD=bl%3D%280%3Bv%202000%3Ba%29%2Cbs%2Ccid%3D%22content-id-123%22%2Cot%3Dv%2Csid%3D%22session-id-123%22%2Csta%3Dr%2Cv%3D2</p>
-<p>Headers:</p>
+<p>Raw keys:</p><code>
+<p>bl=(0;v 2000;a),bs,cid="content-id-123",ot=v,sid="session-id-123",sta=r,v=2</p></code>
+<p>Query-arg:</p><code>
+<p>CMCD=bl%3D%280%3Bv%202000%3Ba%29%2Cbs%2Ccid%3D%22content-id-123%22%2Cot%3Dv%2Csid%3D%22session-id-123%22%2Csta%3Dr%2Cv%3D2</p></code>
+<p>Headers:</p><code>
 <p>CMCD-Request: bl=(0;v 2000;a),sta=r</p>
 <p>CMCD-Object: ot=v</p>
 <p>CMCD-Status: bs</p>
-<p>CMCD-Session: cid="content-id-123",sid="session-id-123",v=2</p>
+<p>CMCD-Session: cid="content-id-123",sid="session-id-123",v=2</p></code>
 </section><section id="multiple-players-with-sequential-ads"><div class="header-wrapper"><h4 id="x8-1-7-multiple-players-with-sequential-ads"><bdi class="secno">8.1.7 </bdi>Multiple players with sequential ads</h4><a class="self-link" href="#multiple-players-with-sequential-ads" aria-label="Permalink for Section 8.1.7"></a></div>
 <p>Background ad content request while main content is playing.</p>
 <p>Primary player:</p>
-<p>Raw keys:</p>
-<p>cid="movie-123",ot=v,sid="session-common-1",v=2</p>
-<p>Query-arg: CMCD=cid%3D%22movie-123%22%2Cot%3Dv%2Csid%3D%22session-common-1%22%2Cv%3D2</p>
-<p>Headers:</p>
+<p>Raw keys:</p><code>
+<p>cid="movie-123",ot=v,sid="session-common-1",v=2</p></code>
+<p>Query-arg:</p><code>
+<p>CMCD=cid%3D%22movie-123%22%2Cot%3Dv%2Csid%3D%22session-common-1%22%2Cv%3D2</p></code>
+<p>Headers:</p><code>
 <p>CMCD-Object: ot=v</p>
-<p>CMCD-Session: cid="movie-123",sid="session-common-1",v=2</p>
+<p>CMCD-Session: cid="movie-123",sid="session-common-1",v=2</p></code>
 <p>Ad player</p>
-<p>Raw keys: cid="ad-555",nr,ot=v,sid="session-common-1",v=2</p>
-<p>Query-arg: CMCD=cid%3D%22ad-555%22%2Cnr%2Cot%3Dv%2Csid%3D%22session-common-1%22%2Cv%3D2</p>
-<p>Headers:</p>
+<p>Raw keys:</p><code>
+<p>cid="ad-555",nr,ot=v,sid="session-common-1",v=2</p></code>
+<p>Query-arg:</p><code>
+<p>CMCD=cid%3D%22ad-555%22%2Cnr%2Cot%3Dv%2Csid%3D%22session-common-1%22%2Cv%3D2</p></code>
+<p>Headers:</p><code>
 <p>CMCD-Object: ot=v</p>
 <p>CMCD-Status: nr</p>
-<p>CMCD-Session: cid="ad-555",sid="session-common-1",v=2</p>
+<p>CMCD-Session: cid="ad-555",sid="session-common-1",v=2</p></code>
 <p>Ad rendered while primary content is not shown (same Session ID, different Content ID):</p>
 <p>Primary player</p>
-<p>Raw keys:</p>
-<p>cid="movie-123",nr,ot=v,sid="session-common-1",v=2</p>
-<p>Query-arg: CMCD=cid%3D%22movie-123%22%2Cnr%2Cot%3Dv%2Csid%3D%22session-common-1%22%2Cv%3D2</p>
-<p>Headers:</p>
+<p>Raw keys:</p><code>
+<p>cid="movie-123",nr,ot=v,sid="session-common-1",v=2</p></code>
+<p>Query-arg:</p><code>
+<p>CMCD=cid%3D%22movie-123%22%2Cnr%2Cot%3Dv%2Csid%3D%22session-common-1%22%2Cv%3D2</p></code>
+<p>Headers:</p><code>
 <p>CMCD-Object: ot=v</p>
 <p>CMCD-Status: nr</p>
-<p>CMCD-Session: cid="movie-123",sid="session-common-1",v=2</p>
+<p>CMCD-Session: cid="movie-123",sid="session-common-1",v=2</p></code>
 <p>Ad player:</p>
-<p>Raw keys:</p>
-<p>cid="ad-555",ot=v,sid="session-common-1",v=2</p>
-<p>Query-arg:</p>
-<p>CMCD=cid%3D%22ad-555%22%2Cot%3Dv%2Csid%3D%22session-common-1%22%2Cv%3D2</p>
-<p>Headers:</p>
+<p>Raw keys:</p><code>
+<p>cid="ad-555",ot=v,sid="session-common-1",v=2</p></code>
+<p>Query-arg:</p><code>
+<p>CMCD=cid%3D%22ad-555%22%2Cot%3Dv%2Csid%3D%22session-common-1%22%2Cv%3D2</p></code>
+<p>Headers:</p><code>
 <p>CMCD-Object: ot=v</p>
-<p>CMCD-Session: cid="ad-555",sid="session-common-1",v=2</p>
+<p>CMCD-Session: cid="ad-555",sid="session-common-1",v=2</p></code>
 </section><section id="complex-example-with-many-request-mode-keys"><div class="header-wrapper"><h4 id="x8-1-8-complex-example-with-many-request-mode-keys"><bdi class="secno">8.1.8 </bdi>Complex example with many Request Mode keys</h4><a class="self-link" href="#complex-example-with-many-request-mode-keys" aria-label="Permalink for Section 8.1.8"></a></div>
-<p>Raw keys:</p>
-<p>bg,bl=(2100;v 1800;a),br=(3000;v 164;a),bs,bsa=(3;v),bsd=(1200;v 100;a),bsda=(4150;v 300;a),cid="content-id-123",cs="g48djn236sk2",d=4000,dfa=32,dl=1000,ec=("2001"),lb=(500;v 32;a),ltc=13500,msd=1700,mtp=(15000;v 6000;a),nor=("next-seg.mp4"),nr,ot=v,pb=(2000;v 164;a),pr=1.1,pt=632782,rtp=12000,sf=d,sid="session-id-123",sn=129,st=l,sta=p,su,tb=(6000;v 350;a),tbl=(2000;v 2000;a),tpb=(5000;v 164;a),v=2</p>
-<p>Query-arg:</p>
-<p>CMCD=bg%2Cbl%3D%282100%3Bv%201800%3Ba%29%2Cbr%3D%283000%3Bv%20164%3Ba%29%2Cbs%2Cbsa%3D%283%3Bv%29%2Cbsd%3D%281200%3Bv%20100%3Ba%29%2Cbsda%3D%284150%3Bv%20300%3Ba%29%2Ccid%3D%22content-id-123%22%2Ccs%3D%22g48djn236sk2%22%2Cd%3D4000%2Cdfa%3D32%2Cdl%3D1000%2Cec%3D%28%222001%22%29%2Clb%3D%28500%3Bv%2032%3Ba%29%2Cltc%3D13500%2Cmsd%3D1700%2Cmtp%3D%2815000%3Bv%206000%3Ba%29%2Cnor%3D%28%22next-seg.mp4%22%29%2Cnr%2Cot%3Dv%2Cpb%3D%282000%3Bv%20164%3Ba%29%2Cpr%3D1.1%2Cpt%3D632782%2Crtp%3D12000%2Csf%3Dd%2Csid%3D%22session-id-123%22%2Csn%3D129%2Cst%3Dl%2Csta%3Dp%2Csu%2Ctb%3D%286000%3Bv%20350%3Ba%29%2Ctbl%3D%282000%3Bv%202000%3Ba%29%2Ctpb%3D%285000%3Bv%20164%3Ba%29%2Cv%3D2</p>
-<p>Headers:</p>
+<p>Raw keys:</p><code>
+<p>bg,bl=(2100;v 1800;a),br=(3000;v 164;a),bs,bsa=(3;v),bsd=(1200;v 100;a),bsda=(4150;v 300;a),cid="content-id-123",cs="g48djn236sk2",d=4000,dfa=32,dl=1000,ec=("2001"),lb=(500;v 32;a),ltc=13500,msd=1700,mtp=(15000;v 6000;a),nor=("next-seg.mp4"),nr,ot=v,pb=(2000;v 164;a),pr=1.1,pt=632782,rtp=12000,sf=d,sid="session-id-123",sn=129,st=l,sta=p,su,tb=(6000;v 350;a),tbl=(2000;v 2000;a),tpb=(5000;v 164;a),v=2</p></code>
+<p>Query-arg:</p><code>
+<p>CMCD=bg%2Cbl%3D%282100%3Bv%201800%3Ba%29%2Cbr%3D%283000%3Bv%20164%3Ba%29%2Cbs%2Cbsa%3D%283%3Bv%29%2Cbsd%3D%281200%3Bv%20100%3Ba%29%2Cbsda%3D%284150%3Bv%20300%3Ba%29%2Ccid%3D%22content-id-123%22%2Ccs%3D%22g48djn236sk2%22%2Cd%3D4000%2Cdfa%3D32%2Cdl%3D1000%2Cec%3D%28%222001%22%29%2Clb%3D%28500%3Bv%2032%3Ba%29%2Cltc%3D13500%2Cmsd%3D1700%2Cmtp%3D%2815000%3Bv%206000%3Ba%29%2Cnor%3D%28%22next-seg.mp4%22%29%2Cnr%2Cot%3Dv%2Cpb%3D%282000%3Bv%20164%3Ba%29%2Cpr%3D1.1%2Cpt%3D632782%2Crtp%3D12000%2Csf%3Dd%2Csid%3D%22session-id-123%22%2Csn%3D129%2Cst%3Dl%2Csta%3Dp%2Csu%2Ctb%3D%286000%3Bv%20350%3Ba%29%2Ctbl%3D%282000%3Bv%202000%3Ba%29%2Ctpb%3D%285000%3Bv%20164%3Ba%29%2Cv%3D2</p></code>
+<p>Headers:</p><code>
 <p>CMCD-Request: bl=(2100;v 1800;a),cs="g48djn236sk2",dfa=32,dl=1000,ltc=13500,mtp=(15000;v 6000;a),nor=("next-seg.mp4"),pb=(2000;v 164;a),sn=129,sta=p,su,tbl=(2000;v 2000;a)</p>
 <p>CMCD-Object: br=(3000;v 164;a),d=4000,lb=(500;v 32;a),ot=v,tb=(6000;v 350;a),tpb=(5000;v 164;a)</p>
 <p>CMCD-Status: bg,bs,bsa=(3;v),bsd=(1200;v 100;a),bsda=(4150;v 300;a),ec=("2001"),nr,pr=1.1,pt=632782,rtp=12000</p>
-<p>CMCD-Session: cid="content-id-123",msd=1700,sf=d,sid="session-id-123",st=l,v=2</p>
+<p>CMCD-Session: cid="content-id-123",msd=1700,sf=d,sid="session-id-123",st=l,v=2</p></code>
 </section></section><section id="event-mode-0"><div class="header-wrapper"><h3 id="x8-2-event-mode"><bdi class="secno">8.2 </bdi>Event mode</h3><a class="self-link" href="#event-mode-0" aria-label="Permalink for Section 8.2"></a></div>
 <p>Data is sent always as a HTTP POST body</p>
 <section id="default-time-interval-30s-with-minimal-required-fields"><div class="header-wrapper"><h4 id="x8-2-1-default-time-interval-30s-with-minimal-required-fields"><bdi class="secno">8.2.1 </bdi>Default time interval (30s) with minimal required fields</h4><a class="self-link" href="#default-time-interval-30s-with-minimal-required-fields" aria-label="Permalink for Section 8.2.1"></a></div>
-<p>POST body:</p>
-<p>e=t,ts=1764752400000,v=2</p>
+<p>POST body:</p><code>
+<p>e=t,ts=1764752400000,v=2</p></code>
 </section><section id="default-time-interval-30s-with-basic-set-of-keys"><div class="header-wrapper"><h4 id="x8-2-2-default-time-interval-30s-with-basic-set-of-keys"><bdi class="secno">8.2.2 </bdi>Default time interval (30s) with basic set of keys</h4><a class="self-link" href="#default-time-interval-30s-with-basic-set-of-keys" aria-label="Permalink for Section 8.2.2"></a></div>
 <p>This example shows a hypothetical sequence of individual time interval reports for an active player.&nbsp;</p>
-<p>POST body:</p>
-<p>bl=(0),cid="content-id-123",e=t,h="example.com",pt=0,sid="session-id-123",sn=1,sta=s,su,ts=1764752400000,v=2</p>
-<p>POST body:</p>
-<p>bl=(6000),br=(4200;v 256;a),cid="content-id-123",e=t,h="example.com",lb=(523;v 64;a),msd=812,mtp=(87000;v 49000;a),pb=(4200;v 256;a),pt=29188,sf=d,sid="session-id-123",sn=2,st=v,sta=p,tb=(4200;v 256;a),tpb=(4200;v 256;a),ts=1764752430000,v=2</p>
-<p>POST body:</p>
-<p>bl=(3200),br=(4200;v 256;a),bs,bsd=(720;v),cid="content-id-123",e=t,ec=("MEDIA_ERR_NETWORK"),h="example.com",lb=(523;v 64;a),mtp=(89000;v 52000;a),pb=(4200;v 256;a),pt=59188,sf=d,sid="session-id-123",sn=3,st=v,sta=p,tb=(4200;v 256;a),tpb=(4200;v 256;a),ts=1764752460000,v=2</p>
-<p>POST body:</p>
-<p>bl=(6000),br=(4200;v 256;a),cid="content-id-123",e=t,h="example.com",lb=(523;v 64;a),mtp=(81000;v 55000;a),pb=(4200;v 256;a),pt=89188,sf=d,sid="session-id-123",sn=4,st=v,sta=p,tb=(4200;v 256;a),tpb=(4200;v 256;a),ts=1764752490000,v=2</p>
-<p>POST body:</p>
-<p>bl=(0),br=(4200;v 256;a),cid="content-id-123",e=t,h="example.com",lb=(523;v 64;a),mtp=(82000;v 55000;a),pb=(4200;v 256;a),pr=0,pt=111000, sf=d, sid="session-id-123",sn=5,st=v,sta=e,tb=(4200;v 256;a),tpb=(4200;v 256;a),ts=1764752520000,v=2</p>
-<p>POST body:</p>
-<p>bl=(0),br=(4200;v 256;a),cid="content-id-123",e=t,h="example.com",lb=(523;v 64;a),mtp=(82000;v 52000;a),pb=(4200;v 256;a),pr=0,pt=111000, sf=d, sid="session-id-123",sn=6,st=v,sta=e,tb=(4200;v 256;a),tpb=(4200;v 256;a),ts=1764752550000,v=2</p>
+<p>POST body:</p><code>
+<p>bl=(0),cid="content-id-123",e=t,h="example.com",pt=0,sid="session-id-123",sn=1,sta=s,su,ts=1764752400000,v=2</p></code>
+<p>POST body:</p><code>
+<p>bl=(6000),br=(4200;v 256;a),cid="content-id-123",e=t,h="example.com",lb=(523;v 64;a),msd=812,mtp=(87000;v 49000;a),pb=(4200;v 256;a),pt=29188,sf=d,sid="session-id-123",sn=2,st=v,sta=p,tb=(4200;v 256;a),tpb=(4200;v 256;a),ts=1764752430000,v=2</p></code>
+<p>POST body:</p><code>
+<p>bl=(3200),br=(4200;v 256;a),bs,bsd=(720;v),cid="content-id-123",e=t,ec=("MEDIA_ERR_NETWORK"),h="example.com",lb=(523;v 64;a),mtp=(89000;v 52000;a),pb=(4200;v 256;a),pt=59188,sf=d,sid="session-id-123",sn=3,st=v,sta=p,tb=(4200;v 256;a),tpb=(4200;v 256;a),ts=1764752460000,v=2</p></code>
+<p>POST body:</p><code>
+<p>bl=(6000),br=(4200;v 256;a),cid="content-id-123",e=t,h="example.com",lb=(523;v 64;a),mtp=(81000;v 55000;a),pb=(4200;v 256;a),pt=89188,sf=d,sid="session-id-123",sn=4,st=v,sta=p,tb=(4200;v 256;a),tpb=(4200;v 256;a),ts=1764752490000,v=2</p></code>
+<p>POST body:</p><code>
+<p>bl=(0),br=(4200;v 256;a),cid="content-id-123",e=t,h="example.com",lb=(523;v 64;a),mtp=(82000;v 55000;a),pb=(4200;v 256;a),pr=0,pt=111000, sf=d, sid="session-id-123",sn=5,st=v,sta=e,tb=(4200;v 256;a),tpb=(4200;v 256;a),ts=1764752520000,v=2</p></code>
+<p>POST body:</p><code>
+<p>bl=(0),br=(4200;v 256;a),cid="content-id-123",e=t,h="example.com",lb=(523;v 64;a),mtp=(82000;v 52000;a),pb=(4200;v 256;a),pr=0,pt=111000, sf=d, sid="session-id-123",sn=6,st=v,sta=e,tb=(4200;v 256;a),tpb=(4200;v 256;a),ts=1764752550000,v=2</p></code>
 <p>bl=(0),br=(4200;v 256;a),cid="content-id-123",e=t,h="example.com",lb=(523;v 64;a),mtp=(82000;v 52000;a),pb=(4200;v 256;a),pr=0,pt=111000, sf=d, sid="session-id-123",sn=7,st=v,sta=e,tb=(4200;v 256;a),tpb=(4200;v 256;a),ts=1764752580000,v=2</p>
 </section><section id="response-received-example"><div class="header-wrapper"><h4 id="x8-2-3-response-received-example"><bdi class="secno">8.2.3 </bdi>Response received example</h4><a class="self-link" href="#response-received-example" aria-label="Permalink for Section 8.2.3"></a></div>
 <p>A player makes a report after successfully retrieving a video segment.</p>
-<p>POST body:</p>
-<p>cid="bbb",cmsdd="ZXRwPTEyNTAwO3J0dD0zNTttYj02MDAwO3JkPTIwMA==",cmsds="c2lkPSI5YTNiLTIxY2QiO2JyPTQ1MDA7ZD00MDAwO290PXY7c3Q9dg==",e=rr,nor=("video/segment-6.m4v"),ot=v,rc=200,sid="session1",ts=1763657019723,ttfb=180,ttlb=200,url="video/segment-5.m4v",v=2</p>
+<p>POST body:</p><code>
+<p>cid="bbb",cmsdd="ZXRwPTEyNTAwO3J0dD0zNTttYj02MDAwO3JkPTIwMA==",cmsds="c2lkPSI5YTNiLTIxY2QiO2JyPTQ1MDA7ZD00MDAwO290PXY7c3Q9dg==",e=rr,nor=("video/segment-6.m4v"),ot=v,rc=200,sid="session1",ts=1763657019723,ttfb=180,ttlb=200,url="video/segment-5.m4v",v=2</p></code>
 </section><section id="event-report-on-an-error"><div class="header-wrapper"><h4 id="x8-2-4-event-report-on-an-error"><bdi class="secno">8.2.4 </bdi>Event report on an error</h4><a class="self-link" href="#event-report-on-an-error" aria-label="Permalink for Section 8.2.4"></a></div>
-<p>POST body:</p>
-<p>cid="content-id-123",e=e,ec=("CODEC_NOT_SUPPORTED"),sid="session-id-123",ts=1764269150,v=2</p>
+<p>POST body:</p><code>
+<p>cid="content-id-123",e=e,ec=("CODEC_NOT_SUPPORTED"),sid="session-id-123",ts=1764269150,v=2</p></code>
 </section><section id="event-report-when-entering-a-rebuffering-state"><div class="header-wrapper"><h4 id="x8-2-5-event-report-when-entering-a-rebuffering-state"><bdi class="secno">8.2.5 </bdi>Event report when entering a rebuffering state</h4><a class="self-link" href="#event-report-when-entering-a-rebuffering-state" aria-label="Permalink for Section 8.2.5"></a></div>
 <p>First event: Entering Rebuffering State.</p>
-<p>POST body:</p>
-<p>cid="content-id-123",e=ps,sid="session-id-123",sta=r,ts=1764269150,v=2</p>
+<p>POST body:</p><code>
+<p>cid="content-id-123",e=ps,sid="session-id-123",sta=r,ts=1764269150,v=2</p></code>
 <p>Second event: Exiting Rebuffering with Buffer Starvation Duration.</p>
-<p>POST body:</p>
-<p>bs,bsd=(1500),cid="content-id-123",e=ps,sid="session-id-123",sta=p,ts=1764269150,v=2</p>
+<p>POST body:</p><code>
+<p>bs,bsd=(1500),cid="content-id-123",e=ps,sid="session-id-123",sta=p,ts=1764269150,v=2</p></code>
 </section><section id="player-scrub-event"><div class="header-wrapper"><h4 id="x8-2-6-player-scrub-event"><bdi class="secno">8.2.6 </bdi>Player scrub event</h4><a class="self-link" href="#player-scrub-event" aria-label="Permalink for Section 8.2.6"></a></div>
 <p>Buffering level (bl) is typically 0 or unknown during a scrub/seek.</p>
-<p>POST body:</p>
-<p>bl=(0),cid="content-id-123",e=ps,pt=30000,sid="session-id-123",sta=k,ts=1764269150,v=2</p>
+<p>POST body:</p><code>
+<p>bl=(0),cid="content-id-123",e=ps,pt=30000,sid="session-id-123",sta=k,ts=1764269150,v=2</p></code>
 </section><section id="skip-ad-event-showing-ad-content-id"><div class="header-wrapper"><h4 id="x8-2-7-skip-ad-event-showing-ad-content-id"><bdi class="secno">8.2.7 </bdi>Skip ad event showing ad content ID</h4><a class="self-link" href="#skip-ad-event-showing-ad-content-id" aria-label="Permalink for Section 8.2.7"></a></div>
-<p>POST body:</p>
-<p>cid="ad-content-555",e=sk,sid="session-id-123",ts=1764269150,v=2</p>
+<p>POST body:</p><code>
+<p>cid="ad-content-555",e=sk,sid="session-id-123",ts=1764269150,v=2</p></code>
 </section><section id="ad-sequence"><div class="header-wrapper"><h4 id="x8-2-8-ad-sequence"><bdi class="secno">8.2.8 </bdi>Ad sequence</h4><a class="self-link" href="#ad-sequence" aria-label="Permalink for Section 8.2.8"></a></div>
 <p>Ad Break Start (using main content ID context)</p>
-<p>POST body:</p>
-<p>cid="movie-123",e=abs,nr,sid="session-id-123",ts=1764269150,v=2</p>
+<p>POST body:</p><code>
+<p>cid="movie-123",e=abs,nr,sid="session-id-123",ts=1764269150,v=2</p></code>
 <p>Ad Start (switching to Ad content ID)</p>
-<p>POST body:</p>
-<p>cid="ad-001",e=as,sid="session-id-123",ts=1764269150,v=2</p>
+<p>POST body:</p><code>
+<p>cid="ad-001",e=as,sid="session-id-123",ts=1764269150,v=2</p></code>
 <p>Ad End (Ad content ID)</p>
-<p>POST body:</p>
-<p>cid="ad-001",e=ae,nr,sid="session-id-123",ts=1764269170,v=2</p>
+<p>POST body:</p><code>
+<p>cid="ad-001",e=ae,nr,sid="session-id-123",ts=1764269170,v=2</p></code>
 <p>Ad Break End (Returning to main content ID)</p>
-<p>POST body:</p>
-<p>cid="movie-123",e=abe,sid="session-id-123",ts=1764269170,v=2</p>
+<p>POST body:</p><code>
+<p>cid="movie-123",e=abe,sid="session-id-123",ts=1764269170,v=2</p></code>
 </section><section id="complete-response-received-event-example-with-many-keys"><div class="header-wrapper"><h4 id="x8-2-9-complete-response-received-event-example-with-many-keys"><bdi class="secno">8.2.9 </bdi>Complete response-received event example with many keys</h4><a class="self-link" href="#complete-response-received-event-example-with-many-keys" aria-label="Permalink for Section 8.2.9"></a></div>
-<p>POST body:</p>
-<p>bg,bl=(2100;v 1800;a),br=(3000;v 164;a),bs,bsa=(3;v 1;a),bsd=(1200;v 100;a),bsda=(4150;v 350;a),cid="content-id-123",cmsdd="IkNETkItM2FrMSI7ZXRwPTk2O3J0dD04",cmsds="b3Q9dixzZj1oLHN0PXYsZD01MDAwLGJyPTIwMDA=",cs="g48djn236sk2",d=4000,dfa=32,dl=1000,e=rr,ec=("2001"),h="example.com",lb=(500;v 32;a) ,ltc=13500,msd=1700, mtp=(15000;v 6000;a), nor=("next-seg.mp4"),nr,ot=v, pb=(2000;v 164;a),pr=1.1, pt=632782,rc=200,rtp=12000,sf=d,sid="session-id-123",smrt="KCk7bj1PcmlnaW5BO3N5biwgKCk7bj1PcmlnaW5CO3Q9MTcwMDAwMDAwMTAwNjtmYj0zLCAoIDE7dD0xNzAwMDAwMDAxMDA1O2ZiPTEzO2xiPTE4IDA7dD0xNzAwMDAwMDAwMDAzO2M9MTAwMCApO249SW50ZXJtZWRpYXJ5O3Q9MTcwMDAwMDAwMDAwMjtmYj0xMDIy",sn=129,st=l,sta=p,su,tb=(6000;v 350;a),tbl=(2000;v 2000;a),tpb=(5000;v 164;a),ts=1764677101751, ttfb=512,ttfbb=632,ttlb=4018,url="https://example.com/videosegment32.mp4",v=2</p>
+<p>POST body:</p><code>
+<p>bg,bl=(2100;v 1800;a),br=(3000;v 164;a),bs,bsa=(3;v 1;a),bsd=(1200;v 100;a),bsda=(4150;v 350;a),cid="content-id-123",cmsdd="IkNETkItM2FrMSI7ZXRwPTk2O3J0dD04",cmsds="b3Q9dixzZj1oLHN0PXYsZD01MDAwLGJyPTIwMDA=",cs="g48djn236sk2",d=4000,dfa=32,dl=1000,e=rr,ec=("2001"),h="example.com",lb=(500;v 32;a) ,ltc=13500,msd=1700, mtp=(15000;v 6000;a), nor=("next-seg.mp4"),nr,ot=v, pb=(2000;v 164;a),pr=1.1, pt=632782,rc=200,rtp=12000,sf=d,sid="session-id-123",smrt="KCk7bj1PcmlnaW5BO3N5biwgKCk7bj1PcmlnaW5CO3Q9MTcwMDAwMDAwMTAwNjtmYj0zLCAoIDE7dD0xNzAwMDAwMDAxMDA1O2ZiPTEzO2xiPTE4IDA7dD0xNzAwMDAwMDAwMDAzO2M9MTAwMCApO249SW50ZXJtZWRpYXJ5O3Q9MTcwMDAwMDAwMDAwMjtmYj0xMDIy",sn=129,st=l,sta=p,su,tb=(6000;v 350;a),tbl=(2000;v 2000;a),tpb=(5000;v 164;a),ts=1764677101751, ttfb=512,ttfbb=632,ttlb=4018,url="https://example.com/videosegment32.mp4",v=2</p></code>
 </section></section><section id="batch-mode-multiple-reports"><div class="header-wrapper"><h3 id="x8-3-batch-mode-multiple-reports"><bdi class="secno">8.3 </bdi>Batch mode – multiple reports</h3><a class="self-link" href="#batch-mode-multiple-reports" aria-label="Permalink for Section 8.3"></a></div>
 <p>An example showing all the events of 8.2.1 sent in a single batch POST (any white space is an artifact of document formatting and would not be included in the batch payload. \n is used to represent the LF character representing a new line).</p>
-<p>POST body:</p>
-<p>bl=(0),cid="content-id-123",e=t,h="example.com",pt=0,sid="session-id-123",sn=1,sta=s,su,ts=1764752400000,v=2\nbl=(6000),br=(4200;v 256;a),cid="content-id-123",e=t,h="example.com",lb=(523;v 64;a),msd=812,mtp=(87000;v 49000;a),pb=(4200;v 256;a),pt=29188,sf=d,sid="session-id-123",sn=2,st=v,sta=p,tb=(4200;v 256;a),tpb=(4200;v 256;a),ts=1764752430000,v=2\nbl=(3200),br=(4200;v 256;a),bs,bsd=(720;v),cid="content-id-123",e=t,ec=("MEDIA_ERR_NETWORK"),h="example.com",lb=(523;v 64;a),mtp=(89000;v 52000;a),pb=(4200;v 256;a),pt=59188,sf=d,sid="session-id-123",sn=3,st=v,sta=p,tb=(4200;v 256;a),tpb=(4200;v 256;a),ts=1764752460000,v=2\nbl=(6000),br=(4200;v 256;a),cid="content-id-123",e=t,h="example.com",lb=(523;v 64;a),mtp=(81000;v 55000;a),pb=(4200;v 256;a),pt=89188,sf=d,sid="session-id-123",sn=4,st=v,sta=p,tb=(4200;v 256;a),tpb=(4200;v 256;a),ts=1764752490000,v=2\nbl=(0),br=(4200;v 256;a),cid="content-id-123",e=t,h="example.com",lb=(523;v 64;a),mtp=(82000;v 55000;a),pb=(4200;v 256;a),pr=0,pt=111000, sf=d, sid="session-id-123",sn=5,st=v,sta=e,tb=(4200;v 256;a),tpb=(4200;v 256;a),ts=1764752520000,v=2\nbl=(0),br=(4200;v 256;a),cid="content-id-123",e=t,h="example.com",lb=(523;v 64;a),mtp=(82000;v 52000;a),pb=(4200;v 256;a),pr=0,pt=111000, sf=d, sid="session-id-123",sn=6,st=v,sta=e,tb=(4200;v 256;a),tpb=(4200;v 256;a),ts=1764752550000,v=2\nbl=(0),br=(4200;v 256;a),cid="content-id-123",e=t,h="example.com",lb=(523;v 64;a),mtp=(82000;v 52000;a),pb=(4200;v 256;a),pr=0,pt=111000, sf=d, sid="session-id-123",sn=7,st=v,sta=e,tb=(4200;v 256;a),tpb=(4200;v 256;a),ts=1764752580000,v=2</p>
+<p>POST body:</p><code>
+<p>bl=(0),cid="content-id-123",e=t,h="example.com",pt=0,sid="session-id-123",sn=1,sta=s,su,ts=1764752400000,v=2\nbl=(6000),br=(4200;v 256;a),cid="content-id-123",e=t,h="example.com",lb=(523;v 64;a),msd=812,mtp=(87000;v 49000;a),pb=(4200;v 256;a),pt=29188,sf=d,sid="session-id-123",sn=2,st=v,sta=p,tb=(4200;v 256;a),tpb=(4200;v 256;a),ts=1764752430000,v=2\nbl=(3200),br=(4200;v 256;a),bs,bsd=(720;v),cid="content-id-123",e=t,ec=("MEDIA_ERR_NETWORK"),h="example.com",lb=(523;v 64;a),mtp=(89000;v 52000;a),pb=(4200;v 256;a),pt=59188,sf=d,sid="session-id-123",sn=3,st=v,sta=p,tb=(4200;v 256;a),tpb=(4200;v 256;a),ts=1764752460000,v=2\nbl=(6000),br=(4200;v 256;a),cid="content-id-123",e=t,h="example.com",lb=(523;v 64;a),mtp=(81000;v 55000;a),pb=(4200;v 256;a),pt=89188,sf=d,sid="session-id-123",sn=4,st=v,sta=p,tb=(4200;v 256;a),tpb=(4200;v 256;a),ts=1764752490000,v=2\nbl=(0),br=(4200;v 256;a),cid="content-id-123",e=t,h="example.com",lb=(523;v 64;a),mtp=(82000;v 55000;a),pb=(4200;v 256;a),pr=0,pt=111000, sf=d, sid="session-id-123",sn=5,st=v,sta=e,tb=(4200;v 256;a),tpb=(4200;v 256;a),ts=1764752520000,v=2\nbl=(0),br=(4200;v 256;a),cid="content-id-123",e=t,h="example.com",lb=(523;v 64;a),mtp=(82000;v 52000;a),pb=(4200;v 256;a),pr=0,pt=111000, sf=d, sid="session-id-123",sn=6,st=v,sta=e,tb=(4200;v 256;a),tpb=(4200;v 256;a),ts=1764752550000,v=2\nbl=(0),br=(4200;v 256;a),cid="content-id-123",e=t,h="example.com",lb=(523;v 64;a),mtp=(82000;v 52000;a),pb=(4200;v 256;a),pr=0,pt=111000, sf=d, sid="session-id-123",sn=7,st=v,sta=e,tb=(4200;v 256;a),tpb=(4200;v 256;a),ts=1764752580000,v=2</p></code>
 </section></section><section id="external-references"><div class="header-wrapper"><h2 id="x9-external-references"><bdi class="secno">9. </bdi>External References</h2><a class="self-link" href="#external-references" aria-label="Permalink for Section 9."></a></div>
 <p>The following documents contain provisions that, through reference in this text, constitute normative provisions of this specification. At the time of publication, the editions indicated were valid. All standards are subject to revision, and parties to agreements based on this specification are encouraged to investigate the possibility of applying the most recent editions of the documents listed here.</p>
 <ol>
