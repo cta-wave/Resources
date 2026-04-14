@@ -93,7 +93,8 @@ This page collects the CTA WAVE extended resources. Some of the documents are pu
 ## Common Media Client Data
 
 ### Published Specifications
-* [Common Media Client Data (CTA-5004-A)](https://cta-wave.github.io/Resources/common-media-client-data--cta-5004-a.html)
+* [Common Media Client Data (CTA-5004-B)](https://cta-wave.github.io/Resources/common-media-client-data--cta-5004-b.html)
+* Prior version: [Common Media Client Data (CTA-5004-A)](https://cta-wave.github.io/Resources/common-media-client-data--cta-5004-a.html)
 
 ### Specification Development
 * [Github issues](https://github.com/cta-wave/common-media-client-data/issues)
