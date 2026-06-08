@@ -27,7 +27,7 @@ This page collects the CTA WAVE extended resources. Some of the documents are pu
 ## Device Playback Task Force
 
 ### Published Specifications
-* [Device Playback Capabilities Specification (CTA-5003-B), Published October 2024 (pdf, public)](https://www.cta.tech/standards/cta-5003-b/)
+* [Device Playback Capabilities Specification (CTA-5003-C), Published June 2026 (pdf, public)](https://shop.cta.tech/products/cta-5003/)
 
 ### Specification Development
 * [Github for comments against specification](https://github.com/cta-wave/device-playback-task-force)
