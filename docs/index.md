@@ -37,6 +37,7 @@ This page collects the CTA WAVE extended resources. Some of the documents are pu
   * [Media Capabilities Issue Tracker](https://github.com/cta-wave/Media-Capability-APIs/issues)
 
 ### Test Resources
+* [Landing page for WAVE Streaming Media Test Suite for Devices](https://www.cta.tech/wave-project/wave-streaming-media-test-suite-devices/)
 * Test Runner
   * [Repo for the DPCTF Test Runner](https://github.com/cta-wave/dpctf-test-runner)
   * [Repo for DPCTF Tests. We prefer to keep the Tests separated from Test Runner](https://github.com/cta-wave/dpctf-tests)
@@ -61,6 +62,7 @@ This page collects the CTA WAVE extended resources. Some of the documents are pu
 * [Web Media API Snapshot 2023 (CTA-5000-F), November 2023](https://www.cta.tech/standards/cta-5000-f/)
 * [Web Media API Snapshot 2024 (CTA-5000-G April 2025 update with Errata)](https://www.cta.tech/resources-folder/standards/cta-5000-g-errata/)
 * [Web Media API Snapshot 2025 (CTA-5000-H), October 2025](https://www.cta.tech/standards/web-application-video-ecosystem-web-media-api-snapshot-2025/)
+* [Web Media API Snapshot 2026 (CTA-5000-I), October 2026](https://www.cta.tech/standards/web-application-video-ecosystem-web-media-api-snapshot-2026/)
 
 ### Specification Development
 
@@ -95,9 +97,6 @@ This page collects the CTA WAVE extended resources. Some of the documents are pu
 ### Published Specifications
 * [Common Media Client Data (CTA-5004-B)](https://cta-wave.github.io/Resources/common-media-client-data--cta-5004-b.html)
   
-### Specification Development
-* [Github issues](https://github.com/cta-wave/common-media-client-data/issues)
-
 
 ## CMAF Byte Stream Format Activity
 
